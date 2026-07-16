@@ -5,7 +5,7 @@ import Image from "next/image";
 
 interface DoctorItem {
   name: string;
-  content: string;
+  content: string[];
   images: string;
 }
 
@@ -30,7 +30,7 @@ export default function GuruparamparaSection({ items }: GuruparamparaSectionProp
       className="relative w-full py-20 bg-[#FBF3EF]/40"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">
-        
+
         {/* Section Heading Header Block */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -75,8 +75,8 @@ export default function GuruparamparaSection({ items }: GuruparamparaSectionProp
 
 
           return (
-            <div 
-              key={profile.name + index} 
+            <div
+              key={profile.name + index}
               className="flex flex-col md:flex-row gap-8 md:gap-16 items-start mt-16 pt-16 border-t border-[#680007]/10 first:border-t-0 first:mt-0 first:pt-0"
             >
               {/* Dynamic image path used instead of hardcoded string profile path */}
@@ -89,16 +89,16 @@ export default function GuruparamparaSection({ items }: GuruparamparaSectionProp
                   className="object-cover"
                 />
               </div>
-              
+
               <div className="w-full md:w-2/3 space-y-4 pt-4">
                 <h3 className="font-serif text-xl md:text-2xl text-[#680007] font-medium uppercase leading-snug">
                   {profile.name}
                 </h3>
-                
+
                 <div className="space-y-4 mt-4">
                   {profile.content.map((paragraph, pIndex) => (
-                    <p 
-                      key={pIndex} 
+                    <p
+                      key={pIndex}
                       className="font-serif text-base md:text-lg text-[#3D0004]/80 leading-relaxed font-light"
                     >
                       {paragraph}

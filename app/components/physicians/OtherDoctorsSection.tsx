@@ -4,11 +4,10 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
-// 1. Structural interface matching keys returned from your Laravel API endpoint
 interface DoctorItem {
   name: string;
-  content: string; // Maps to the text description field
-  images: string;  // Absolute asset URL point string
+  content: string; 
+  images: string;  
 }
 
 interface OtherDoctorsSectionProps {
@@ -79,9 +78,8 @@ export default function OtherDoctorsSection({ items }: OtherDoctorsSectionProps)
                 </h3>
                 
                 {/* Truncated narrative display block */}
-                <p className="font-serif text-base text-[#3D0004]/60 leading-relaxed font-light line-clamp-3 mb-4 flex-grow">
-                  {doctor.content}
-                </p>
+                <div className="font-serif text-base text-[#3D0004]/50 leading-relaxed font-light line-clamp-3 mb-4 flex-grow"
+                dangerouslySetInnerHTML={{ __html: doctor.content }} />
 
                 <div className="mt-auto pt-2">
                   <button
@@ -164,9 +162,11 @@ export default function OtherDoctorsSection({ items }: OtherDoctorsSectionProps)
                 </div>
 
                 {/* Full Un-truncated Biography Content text */}
-                <p className="font-serif text-base md:text-lg text-[#3D0004]/80 leading-relaxed font-light whitespace-pre-line">
-                  {selectedDoctor.content}
-                </p>
+          <div
+  className="font-serif text-base md:text-lg text-[#3D0004]/80 leading-relaxed font-light"
+  dangerouslySetInnerHTML={{ __html: selectedDoctor.content }}
+/>
+               
               </div>
             </motion.div>
           </div>

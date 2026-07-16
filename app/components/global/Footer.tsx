@@ -8,22 +8,25 @@ interface FooterProps {
   onOpenBooking?: () => void;
 }
 interface FooterData {
-    contact: {
-        address: string;
-        phone: string;
-        email: string;
-        linkedin: string;
-        facebook:string;
-        instagram:string;
-        youtube:string;
-        time:string;
-    };
-    footer:{
-      title:string;
-      content:string;
-    }
+  contact: {
+    address: string;
+    phone: string;
+    email: string;
+    linkedin: string;
+    facebook: string;
+    instagram: string;
+    youtube: string;
+    time: string;
+  };
+  footer: {
+    title: string;
+    content: string;
+  }
 }
 export default function Footer({ onOpenBooking }: FooterProps) {
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
   const triggerBooking = () => {
     if (onOpenBooking) {
       onOpenBooking();
@@ -32,15 +35,52 @@ export default function Footer({ onOpenBooking }: FooterProps) {
       if (btn) btn.click();
     }
   };
-   const [data, setData] = useState<FooterData | null>(null);
+  const [data, setData] = useState<FooterData | null>(null);
 
-    useEffect(() => {
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/layout`) // Ensure this matches your route
-            .then((res) => res.json())
-            .then(setData)
-            .catch(console.error);
-    }, []);
+  useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/layout`) // Ensure this matches your route
+      .then((res) => res.json())
+      .then(setData)
+      .catch(console.error);
+  }, []);
 
+
+const handleNewsletter = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    setLoading(true);
+    setMessage("");
+
+    try {
+        const response = await fetch(
+            `${process.env.NEXT_PUBLIC_API_URL}/newsletter`,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email,
+                }),
+            }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok || !result.success) {
+            throw new Error(result.message);
+        }
+
+        setMessage(result.message);
+setEmail("");
+    } catch (err) {
+        if (err instanceof Error) {
+            setMessage(err.message);
+        }
+    } finally {
+        setLoading(false);
+    }
+};
   return (
     <footer id="footer" className="w-full bg-transparent text-[#3D0004] font-sans">
 
@@ -62,7 +102,7 @@ export default function Footer({ onOpenBooking }: FooterProps) {
           <div className="text-center md:text-left max-w-2xl">
             <div className="space-y-2">
               <h3 className="font-serif text-2xl md:text-3xl font-light text-[#faf8f5] tracking-wide">
-               {data?.footer?.title}
+                {data?.footer?.title}
               </h3>
               <p className="text-xs md:text-sm text-[#faf8f5]/80 font-light max-w-xl"> {data?.footer?.content}</p>
             </div>
@@ -171,7 +211,7 @@ export default function Footer({ onOpenBooking }: FooterProps) {
             <ul className="space-y-2.5">
               {[
                 { label: "Home", href: "/" },
-               { label: "Why Choose Us", href: "/why-choose-us" },
+                { label: "Why Choose Us", href: "/why-choose-us" },
                 { label: "Wellness Treatments", href: "/wellness-treatments" },
                 { label: "Facilities", href: "/facilities" },
                 { label: "Contact Us", href: "/contact" },
@@ -196,7 +236,7 @@ export default function Footer({ onOpenBooking }: FooterProps) {
                 { label: "Nearby Places", href: "/nearby-place" },
                 { label: "Joint Venture", href: "/joint-venture" },
                 { label: "Patient Stories", href: "/testimonials" },
-                { label: "Gallery", href: "/gallery" }, 
+                { label: "Gallery", href: "/gallery" },
                 { label: "Video Gallery", href: "/video-gallery" },
               ].map((link) => (
                 <li key={link.label}>
@@ -222,7 +262,7 @@ export default function Footer({ onOpenBooking }: FooterProps) {
                 Email: <a href={`mailto:${data?.contact?.email}`} className="hover:underline">{data?.contact?.email}</a>
               </p>
               <p>
-               {data?.contact?.time}
+                {data?.contact?.time}
               </p>
             </div>
           </div>
@@ -235,21 +275,37 @@ export default function Footer({ onOpenBooking }: FooterProps) {
             <p className="text-xs text-[#3D0004]/75 leading-relaxed font-light">
               Stay updated with health tips, offers and Ayurveda insights.
             </p>
-            <form onSubmit={(e) => e.preventDefault()} className="flex items-center border border-[#680007]/15 rounded-xs overflow-hidden bg-[#faf8f5]">
+            <form
+    onSubmit={handleNewsletter}
+    className="flex items-center border border-[#680007]/15 rounded-xs overflow-hidden bg-[#faf8f5]">
               <input
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Your email address"
                 required
-                className="w-full px-3 py-2.5 text-xs text-[#3D0004] placeholder-[#3D0004]/50 bg-transparent border-none focus:outline-none"
+             className="w-full px-3 py-2.5 text-xs text-[#3D0004] placeholder-[#3D0004]/50 bg-transparent border-none focus:outline-none"
               />
-              <button
-                type="submit"
-                className="bg-[#680007] hover:bg-[#b38e5d] text-[#faf8f5] px-3.5 py-2.5 transition-colors cursor-pointer border-l border-[#680007]"
-                aria-label="Subscribe"
-              >
-                &rarr;
-              </button>
+             <button
+                    type="submit"
+                    disabled={loading}
+                    className="bg-[#680007] hover:bg-[#b38e5d] text-[#faf8f5] px-3.5 py-2.5 transition-colors cursor-pointer border-l border-[#680007] disabled:opacity-50"
+                >
+                    {loading ? "..." : "→"}
+                </button>
             </form>
+              {message && (
+                  <p
+                      className={`mt-2 text-xs ${
+                          message.toLowerCase().includes("thank")
+                              ? "text-green-600"
+                              : "text-red-600"
+                      }`}
+                  >
+                      {message}
+                  </p>
+              )}
+
           </div>
 
         </div>

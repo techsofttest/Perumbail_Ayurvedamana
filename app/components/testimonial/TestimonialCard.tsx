@@ -4,9 +4,22 @@ import { motion } from "framer-motion";
 import { SuccessStory } from "./types";
 
 interface TestimonialCardProps {
-  story: SuccessStory;
+  story: {
+    id: number;
+    patientName: string;
+    country: string;
+    condition: string;
+    quote: string;
+    before: string;
+    after: string;
+    hasVideo: boolean;
+    video: string | null;
+    link: boolean;
+    coverPhoto: string | null;
+    flag?: string; 
+  };
   index: number;
-  onPlayVideo: (story: SuccessStory) => void;
+  onPlayVideo: (story: any) => void;
 }
 
 export default function TestimonialCard({ story, index, onPlayVideo }: TestimonialCardProps) {

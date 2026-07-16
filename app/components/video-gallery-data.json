@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "overview-heritage",
+    "name": "Overview & Heritage",
+    "description": "Virtual tour and historical overview of Perumbayil Ayurvedamana's ancestral sanctuary.",
+    "coverImage": "/about-section/building3.png",
+    "videos": [
+      {
+        "title": "Perumbayil Ayurvedamana Heritage Tour",
+        "src": "/ayurveda-mana-videos/001 Ayurvedhamana.mp4"
+      }
+    ]
+  },
+  {
+    "slug": "clinical-rejuvenation",
+    "name": "Clinical & Rejuvenation",
+    "description": "Explore authentic anti-aging and natural beauty restoration programs.",
+    "coverImage": "/services-methods/Abhyanga/thumbnail.JPG",
+    "videos": [
+      {
+        "title": "Anti-Aging Lineage Therapies",
+        "src": "/ayurveda-mana-videos/ANTI  AGING TREATMENT MOB.mp4"
+      },
+      {
+        "title": "Ayurvedic Beauty Restoration",
+        "src": "/ayurveda-mana-videos/BEAUTY MOB.mp4"
+      }
+    ]
+  },
+  {
+    "slug": "lifestyle-disease-management",
+    "name": "Lifestyle & Disease Management",
+    "description": "Supervised programs for lifestyle, obesity, and sleep disorders.",
+    "coverImage": "/services-methods/Lunch/IMG_9771.JPG",
+    "videos": [
+      {
+        "title": "Lifestyle Disease Management",
+        "src": "/ayurveda-mana-videos/LIFE STYLE DISEASE MANAGMENT  MOB.mp4"
+      },
+      {
+        "title": "Clinical Obesity Treatments",
+        "src": "/ayurveda-mana-videos/TREATMENT FOR OBESITY MOB.mp4"
+      },
+      {
+        "title": "Sleep Disorder Therapies",
+        "src": "/ayurveda-mana-videos/SLEEP DISORDER MOB.mp4"
+      }
+    ]
+  },
+  {
+    "slug": "yoga-meditation",
+    "name": "Yoga & Meditation",
+    "description": "Daily yoga, breathing exercises, and spiritual harmony practices.",
+    "coverImage": "/services-methods/Yoga/thumbnail.JPG",
+    "videos": [
+      {
+        "title": "Pranayama & Asana Practices",
+        "src": "/ayurveda-mana-videos/YOGA AND MEDITATION MOB.mp4"
+      }
+    ]
+  }
+]

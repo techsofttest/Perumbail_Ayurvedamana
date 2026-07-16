@@ -5,7 +5,7 @@ import Image from "next/image";
 
 interface DoctorItem {
   name: string;
-  content: string[];
+  content: string;
   images: string;
 }
 
@@ -96,14 +96,10 @@ export default function GuruparamparaSection({ items }: GuruparamparaSectionProp
                 </h3>
 
                 <div className="space-y-4 mt-4">
-                  {profile.content.map((paragraph, pIndex) => (
-                    <p
-                      key={pIndex}
-                      className="font-serif text-base md:text-lg text-[#3D0004]/80 leading-relaxed font-light"
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
+                  <div
+  className="font-serif text-base md:text-lg text-[#3D0004]/80 leading-relaxed font-light"
+  dangerouslySetInnerHTML={{ __html: profile.content }}
+/>
                 </div>
               </div>
             </div>

@@ -19,7 +19,7 @@ export default function Hero({ onOpenBooking }: HeroProps) {
   const heroRef = useRef<HTMLElement>(null);
   const [data, setData] = useState<HeroImage[]>([]);
   const [loading, setLoading] = useState(true);
-
+const [indexPage, setIndexPage] = useState<string[]>([]);
 
 const { scrollYProgress } = useScroll({
     offset: ["start start", "end start"],
@@ -47,6 +47,8 @@ const { scrollYProgress } = useScroll({
 
         setData(slides);
         setCurrentSlide(0);
+
+  setIndexPage(payload.indexpage?.content || []);
       })
       .catch((err) => {
         console.error(err);
@@ -192,7 +194,10 @@ const { scrollYProgress } = useScroll({
       </div>
 
       {/* Bottom Content: Trust Indicators inside Hero with light black gradient overlay */}
-      <TrustIndicators isHero={true} />
+     <TrustIndicators
+  isHero={true}
+  content={indexPage}
+/>
     </motion.section>
   );
 }

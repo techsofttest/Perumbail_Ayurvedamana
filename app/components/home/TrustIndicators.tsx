@@ -82,10 +82,17 @@ function LaurelWreathRight({ className }: { className?: string }) {
   );
 }
 
-export default function TrustIndicators({ isHero = false }: { isHero?: boolean }) {
+export default function TrustIndicators({
+  isHero = false,
+  content = [],
+}: {
+  isHero?: boolean;
+  content?: string[];
+}) {
+
   const indicators = [
     {
-      title: "100+ Years of Legacy",
+       title: content[0] || "100+ Years of Legacy",
       icon: (
         <svg className="w-6 h-6 text-[#c8ab80]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -93,7 +100,7 @@ export default function TrustIndicators({ isHero = false }: { isHero?: boolean }
       ),
     },
     {
-      title: "Evidence Based Ayurveda",
+      title: content[1] || "Evidence Based Ayurveda",
       icon: (
         <svg className="w-6 h-6 text-[#c8ab80]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -102,7 +109,7 @@ export default function TrustIndicators({ isHero = false }: { isHero?: boolean }
       ),
     },
     {
-      title: "Expert Physicians",
+     title: content[2] || "Expert Physicians",
       icon: (
         <svg className="w-6 h-6 text-[#c8ab80]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
           <path strokeLinecap="round" strokeLinejoin="round" d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
@@ -113,7 +120,7 @@ export default function TrustIndicators({ isHero = false }: { isHero?: boolean }
       ),
     },
     {
-      title: "Natural Healing",
+      title: content[3] || "Natural Healing",
       icon: (
         <svg className="w-6 h-6 text-[#c8ab80]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
           <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z" />

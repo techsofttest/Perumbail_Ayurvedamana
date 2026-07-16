@@ -8,6 +8,7 @@ export interface SuccessStory {
   before?: string;
   after?: string;
   hasVideo: boolean;
+  link: boolean;
   video?: string;
   coverPhoto?: string;
 }

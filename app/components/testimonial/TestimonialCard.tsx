@@ -6,7 +6,7 @@ import { SuccessStory } from "./types";
 interface TestimonialCardProps {
   story: SuccessStory;
   index: number;
-  onPlayVideo: (videoSrc: string, title: string) => void;
+  onPlayVideo: (story: SuccessStory) => void;
 }
 
 export default function TestimonialCard({ story, index, onPlayVideo }: TestimonialCardProps) {
@@ -18,11 +18,10 @@ export default function TestimonialCard({ story, index, onPlayVideo }: Testimoni
       transition={{ duration: 0.6, delay: index * 0.1 }}
       className="bg-white/60 backdrop-blur-sm border border-[#680007]/10 p-8 md:p-10 hover:shadow-xl transition-shadow duration-300 flex flex-col"
     >
-      {/* 1. Header: Always Renders */}
+      {/* 1. Header */}
       <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-4 mb-8 border-b border-[#680007]/10 pb-6">
         <div>
           <div className="flex items-center gap-3 mb-2">
-            {/* Person Icon */}
             <svg className="w-6 h-6 md:w-7 md:h-7 text-[#680007]" fill="currentColor" viewBox="0 0 24 24">
               <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
             </svg>
@@ -48,64 +47,61 @@ export default function TestimonialCard({ story, index, onPlayVideo }: Testimoni
         </div>
       </div>
 
-      {/* 2. Video Placeholder: Clicking opens lightbox modal or new tab for YouTube */}
-     {/* Video Section */}
-{story.hasVideo && story.video && (
-  <div className="mb-8 flex flex-col gap-4">
+      {/* 2. Video Placeholder */}
+      {story.hasVideo && story.video && (
+        <div className="mb-8 flex flex-col gap-4">
+          {/* Uploaded Video */}
+          {!story.link && (
+            <div
+              onClick={() => onPlayVideo(story)}
+              className="relative w-full aspect-video border border-[#680007]/10 flex items-center justify-center group cursor-pointer overflow-hidden bg-[#e6e0d5]"
+            >
+              {story.coverPhoto && (
+                <img
+                  src={story.coverPhoto}
+                  alt={story.patientName}
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+              )}
 
-    {/* Uploaded Video */}
-    {!story.link && (
-      <div
-        onClick={() => onPlayVideo(story)}
-        className="relative w-full aspect-video border border-[#680007]/10 flex items-center justify-center group cursor-pointer overflow-hidden bg-[#e6e0d5]"
-      >
-        {story.coverPhoto && (
-          <img
-            src={story.coverPhoto}
-            alt={story.patientName}
-            className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-        )}
+              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/35 transition-all" />
 
-        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/35 transition-all" />
+              <div className="relative z-20 w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
+                <div className="ml-1 w-0 h-0 border-t-8 border-b-8 border-l-[14px] border-t-transparent border-b-transparent border-l-[#680007]" />
+              </div>
 
-        <div className="relative z-20 w-16 h-16 rounded-full bg-white flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform">
-          <div className="ml-1 w-0 h-0 border-t-8 border-b-8 border-l-[14px] border-t-transparent border-b-transparent border-l-[#680007]" />
+              <span className="absolute bottom-4 left-4 z-20 text-xs uppercase tracking-widest font-bold text-white">
+                Watch Video Testimonial
+              </span>
+            </div>
+          )}
+
+          {/* YouTube Link */}
+          {story.link && (
+            <a
+              href={story.video}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#680007] hover:bg-[#b38e5d] text-white text-sm font-bold uppercase tracking-wider rounded transition-colors self-start"
+            >
+              <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+              </svg>
+              Open on YouTube
+            </a>
+          )}
         </div>
+      )}
 
-        <span className="absolute bottom-4 left-4 z-20 text-xs uppercase tracking-widest font-bold text-white">
-          Watch Video Testimonial
-        </span>
-      </div>
-    )}
-
-    {/* YouTube Link */}
-    {story.link && (
-      <a
-        href={story.video}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center justify-center gap-2 px-4 py-2 bg-[#680007] hover:bg-[#b38e5d] text-white text-sm font-bold uppercase tracking-wider rounded transition-colors self-start"
-      >
-        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-        </svg>
-
-        Open on YouTube
-      </a>
-    )}
-
-  </div>
-)}
-      {/* 3. Quote: Conditionally Renders */}
+      {/* 3. Quote (Safely escaped HTML entities) */}
       {story.quote && (
         <blockquote className="font-serif text-xl md:text-3xl text-[#3D0004] italic leading-snug mb-8 relative z-10">
-          <span className="absolute -top-6 -left-4 text-7xl text-[#680007]/10 font-serif -z-10">"</span>
+          <span className="absolute -top-6 -left-4 text-7xl text-[#680007]/10 font-serif -z-10">&quot;</span>
           {story.quote}
         </blockquote>
       )}
 
-      {/* 4. Before and After Narrative: Conditionally Renders */}
+      {/* 4. Before and After Narrative */}
       {(story.before || story.after) && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 bg-[#FBF3EF]/40 p-6 border border-[#680007]/5 mt-auto">
           {story.before && (

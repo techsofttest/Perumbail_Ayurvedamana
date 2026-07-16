@@ -6,11 +6,11 @@ import Footer from "../components/global/Footer";
 import BookingModal from "../components/ui/BookingModal";
 import StyledButton from "../components/ui/StyledButton";
 
-// Import custom components
 import TestimonialHero from "../components/testimonial/TestimonialHero";
 import CountryFilter from "../components/testimonial/CountryFilter";
 import TestimonialCard from "../components/testimonial/TestimonialCard";
 import VideoLightbox from "../components/testimonial/VideoLightbox";
+
 interface Data {
   id: number;
   patientName: string;
@@ -24,19 +24,23 @@ interface Data {
   link: boolean;
   coverPhoto: string | null;
 }
+
+interface ActiveVideo {
+  src: string;
+  title: string;
+  link: boolean;
+}
+
 export default function TestimonialsPage() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [activeFilter, setActiveFilter] = useState("All");
-const [activeVideo, setActiveVideo] = useState<{
-    src: string;
-    title: string;
-    link: boolean;
-} | null>(null);
+  const [activeVideo, setActiveVideo] = useState<ActiveVideo | null>(null);
+  const [testimony, setTherapies] = useState<Data[]>([]);
+
+  const apiBase = (process.env.NEXT_PUBLIC_API_URL || process.env.NEXT_PUBLIC_API_URL_BASE || "").replace(/\/+$/, "");
 
   const openBooking = () => setIsBookingOpen(true);
   const closeBooking = () => setIsBookingOpen(false);
-  const [testimony, setTherapies] = useState<Data[]>([]);
-  const apiBase = (process.env.NEXT_PUBLIC_API_URL || process.env.NEXT_PUBLIC_API_URL_BASE || "").replace(/\/+$/, "");
 
   useEffect(() => {
     fetch(`${apiBase}/testimonial`)
@@ -56,18 +60,18 @@ const [activeVideo, setActiveVideo] = useState<{
   const filteredStories =
     activeFilter === "All"
       ? testimony
-      : testimony.filter(
-        (story) => story.country === activeFilter
-      );
-const handlePlayVideo = (story: Data) => {
-  if (!story.video) return;
+      : testimony.filter((story) => story.country === activeFilter);
 
-  setActiveVideo({
-    src: story.video,
-    title: story.patientName,
-    link: story.link,
-  });
-};
+  const handlePlayVideo = (story: Data) => {
+    if (!story.video) return;
+
+    setActiveVideo({
+      src: story.video,
+      title: story.patientName,
+      link: story.link,
+    });
+  };
+
   return (
     <div className="relative flex flex-col min-h-screen text-[#3D0004] overflow-x-hidden selection:bg-[#a84e32]/25 selection:text-[#3D0004]">
       {/* Background Layers */}
@@ -91,7 +95,6 @@ const handlePlayVideo = (story: Data) => {
       <Header onOpenBooking={openBooking} />
 
       <main className="flex-grow pb-20">
-
         {/* Parallax Hero Section */}
         <TestimonialHero />
 
@@ -118,19 +121,22 @@ const handlePlayVideo = (story: Data) => {
 
         {/* CALL TO ACTION */}
         <section className="max-w-4xl mx-auto px-6 md:px-12 mt-24 text-center">
-          <h2 className="font-serif text-3xl md:text-4xl text-[#680007] mb-8 uppercase">Ready to Write Your Own Success Story?</h2>
+          <h2 className="font-serif text-3xl md:text-4xl text-[#680007] mb-8 uppercase">
+            Ready to Write Your Own Success Story?
+          </h2>
           <StyledButton onClick={openBooking} className="px-12 py-4 text-lg">
             Get Your Free Medical Opinion
           </StyledButton>
         </section>
-
       </main>
 
       <Footer />
       <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />
 
-      {/* Premium Full-Screen Video Lightbox Modal */}
-      <VideoLightbox video={activeVideo} onClose={() => setActiveVideo(null)} />
+      {/* Premium Full-Screen Video Lightbox Modal with safety check */}
+      {activeVideo && (
+        <VideoLightbox video={activeVideo} onClose={() => setActiveVideo(null)} />
+      )}
     </div>
   );
 }

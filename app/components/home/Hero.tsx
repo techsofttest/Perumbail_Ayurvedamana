@@ -141,7 +141,7 @@ const { scrollYProgress } = useScroll({
       {/* Top-Left Content: Title & Chapter */}
       <div
         key={`title-${currentSlide}`}
-        className="absolute top-12 left-6 md:top-40 md:left-12 max-w-lg md:max-w-xl text-left z-10 animate-fade-in-up"
+       className="absolute top-24 left-6 md:top-40 md:left-12 max-w-lg md:max-w-xl text-left z-10 animate-fade-in-up"
       >
         {/* Chapter Designation */}
         <span className="block font-mono text-xs md:text-sm uppercase tracking-widest text-[#c8ab80] mb-2 md:mb-3">

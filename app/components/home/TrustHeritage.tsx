@@ -105,6 +105,13 @@ export default function TrustHeritage() {
                             <div className="w-[70%] h-0.5 bg-[#680007]/20"></div>
                         </div>
                         <p className="font-serif text-3xl text-[#680007]/70 leading-relaxed max-w-3xl mt-16">{about?.content}</p>
+                        <StyledButton
+                            href="/why-choose-us"
+                            variant="secondary"
+                            className="flex-1 border-2 border-[#680007] !text-md text-[#680007] hover:text-[#faf8f5] "
+                        >
+                            <span>Read more</span>
+                        </StyledButton>
                     </motion.div>
                 </div>
 

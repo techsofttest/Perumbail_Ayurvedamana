@@ -83,7 +83,7 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
               <StyledButton
                 href="/online-consultation"
                 variant="secondary"
-                className="text-white border-1 border-white/20 hover:bg-white/10 hover:text-white"
+                className="text-white border border-white/20 hover:bg-white/10 hover:text-white"
               >Book Consultation</StyledButton>
             </div>
           </div>

@@ -163,7 +163,6 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
                 <nav className="flex items-center space-x-5 pt-2">
                   {[
                     { label: "Home", href: "/" },
-                     { label: "Why Choose Us", href: "/why-choose-us" },
                     { label: "History", href: "/history" },
                     { label: "Physicians", href: "/physicians" },
                     { label: "Therapies", href: "/therapies" },

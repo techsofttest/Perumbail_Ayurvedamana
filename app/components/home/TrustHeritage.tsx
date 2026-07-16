@@ -137,7 +137,7 @@ export default function TrustHeritage() {
                             <span>Enquire Now</span>
                         </StyledButton>
                         <StyledButton
-                            href="https://wa.me/919645095696"
+                            href={contact.whatsapp}
                             variant="secondary"
                             className="flex-1 border-2 border-[#680007] !text-md text-[#680007] hover:text-[#faf8f5]"
                         >

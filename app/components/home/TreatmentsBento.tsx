@@ -30,11 +30,7 @@ export default function TreatmentsBento() {
 
   const normalizeTherapyData = (payload: any): TherapyData[] => {
     if (Array.isArray(payload)) return payload;
-    if (Array.isArray(payload?.pages)) return payload.pages;
-    if (Array.isArray(payload?.therapies)) return payload.therapies;
-    if (Array.isArray(payload?.data)) return payload.data;
-    if (Array.isArray(payload?.services)) return payload.services;
-    if (Array.isArray(payload?.payload)) return payload.payload;
+    if (Array.isArray(payload?.therapy)) return payload.therapy;
     return [];
   };
 
@@ -78,7 +74,7 @@ export default function TreatmentsBento() {
                     {/* Large Image Container */}
                     <div className="relative w-full aspect-[3/2] overflow-hidden bg-[#e6e0d5]">
                       <Image
-                        src={`${process.env.NEXT_PUBLIC_API_URL_BASE}/${item.image}`}
+                        src={item.image}
                         alt={item.title}
                         fill
                         sizes="(max-w-768px) 100vw, 33vw"

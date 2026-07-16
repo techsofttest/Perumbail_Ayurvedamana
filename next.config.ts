@@ -14,10 +14,9 @@ const nextConfig = {
         port: "8000",
         pathname: "/uploads/**",
       },
-       {
+      {
         protocol: "https",
         hostname: "techsoftwebsolutions.com",
-        port: "443",
         pathname: "/techsoft/demo/ayurvedamana/public/uploads/**",
       },
     ],

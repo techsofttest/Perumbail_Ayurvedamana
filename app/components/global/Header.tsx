@@ -79,11 +79,11 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
             </div>
 
             {/* Right End: CTA Button */}
-            <div>
+            <div className="hidden md:block">
               <StyledButton
                 href="/online-consultation"
                 variant="secondary"
-                className="hidden md:block text-white border border-white/20 hover:bg-white/10 hover:text-white "
+                className="text-white border border-white/20 hover:bg-white/10 hover:text-white "
               >Book Consultation</StyledButton>
             </div>
           </div>

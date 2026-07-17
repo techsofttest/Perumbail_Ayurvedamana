@@ -13,7 +13,7 @@ interface PageProps {
 
 async function getSEO(slug: string): Promise<SeoPayload> {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
-  const res = await fetch(`${baseUrl}git add .${slug}`, {
+  const res = await fetch(`${baseUrl}/product/detail/${slug}`, {
     cache: "no-store",
   });
 

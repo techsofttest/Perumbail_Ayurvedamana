@@ -17,7 +17,10 @@ interface OtherDoctorsSectionProps {
 export default function OtherDoctorsSection({ items }: OtherDoctorsSectionProps) {
   // 2. Set state tracking typed safely to our dynamic model
   const [selectedDoctor, setSelectedDoctor] = useState<null | DoctorItem>(null);
-
+const stripHtml = (html: string) => {
+  const doc = new DOMParser().parseFromString(html, "text/html");
+  return doc.body.textContent || "";
+};
   // Guard clause: Hide section cleanly if array data hasn't loaded yet
   if (!items || items.length === 0) return null;
 
@@ -78,8 +81,9 @@ export default function OtherDoctorsSection({ items }: OtherDoctorsSectionProps)
                 </h3>
                 
                 {/* Truncated narrative display block */}
-                <div className="font-serif text-base text-[#3D0004]/50 leading-relaxed font-light line-clamp-3 mb-4 flex-grow"
-                dangerouslySetInnerHTML={{ __html: doctor.content }} />
+               <p className="font-serif text-base text-[#3D0004]/50 leading-relaxed line-clamp-3 mb-4">
+                            {stripHtml(doctor.content)}
+                          </p>
 
                 <div className="mt-auto pt-2">
                   <button

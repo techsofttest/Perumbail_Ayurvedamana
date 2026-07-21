@@ -6,6 +6,8 @@ interface DetailedContentProps {
   description: string[];
   inclusionsTitle?: string;
   inclusions?: string[];
+  therapyTitle?: string;
+  therapy?: string[];
 }
 
 export default function DetailedContent({
@@ -13,7 +15,9 @@ export default function DetailedContent({
   mainTitle = "Description & Benefits",
   description,
   inclusionsTitle = "Treatment Inclusions & Highlights",
-  inclusions
+  inclusions,
+  therapyTitle = "Treatment Inclusions & Highlights",
+  therapy,
 }: DetailedContentProps) {
   return (
     <div className="md:col-span-7 space-y-6">
@@ -46,6 +50,21 @@ export default function DetailedContent({
                 <span className="text-[#680007] mt-1">✦</span>
                 <span>{point}</span>
               </li>
+            ))}
+          </ul>
+        </div>
+      )}
+      {therapy && therapy.length > 0 && (
+        <div className="pt-6 border-t border-[#680007]/10">
+          <h3 className="font-serif text-lg font-medium text-[#680007] uppercase mb-4">
+            {therapyTitle}
+          </h3>
+          <ul className="space-y-3 font-serif text-base text-[#3D0004]/80 leading-relaxed font-light list-none">
+            {therapy.map((point, index) => (
+               <span key={index}
+                        className="bg-[#f7f4f0] border border-[#680007]/15 px-3 py-1.5 text-xs text-[#3D0004]">
+                        {point}
+                      </span>
             ))}
           </ul>
         </div>

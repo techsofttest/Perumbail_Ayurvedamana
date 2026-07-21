@@ -75,8 +75,12 @@ export default function TherapyDetailedPage({ params }: PageProps) {
             <div className="grid grid-cols-1 md:grid-cols-12 gap-16 mt-8">
               <DetailedContent
                 aboutLabel="About the Treatment"
-                mainTitle="Description & Benefits"
+                mainTitle="Description"
                 description={therapy.description}
+                inclusionsTitle="Benefits"
+                inclusions={therapy.benefits}
+                therapyTitle="Traditional Lineage Therapies"
+                therapy={therapy.therapy}
               />
               <DetailedSidebar
                 onButtonClick={openBooking}

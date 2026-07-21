@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import StyledButton from "./StyledButton";
-
 interface BookingModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -16,21 +15,58 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
     treatment: "Neurological Disorders",
     message: "",
   });
-
+const [loading, setLoading] = useState(false);
+const [error, setError] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   if (!isOpen) return null;
+const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Simulate booking API request or Zustand flow
-    setSubmitted(true);
-    setTimeout(() => {
-      setSubmitted(false);
-      setForm({ name: "", email: "", phone: "", treatment: "Neurological Disorders", message: "" });
-      onClose();
-    }, 2000);
-  };
+  setLoading(true);
+  setError("");
+
+  try {
+     const response = await fetch(
+  `${process.env.NEXT_PUBLIC_API_URL}/send`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(form),
+      }
+    );
+    const result = await response.json();
+    if (response.ok && result.success) {
+      setSubmitted(true);
+
+      setTimeout(() => {
+        setSubmitted(false);
+        setForm({
+          name: "",
+          email: "",
+          phone: "",
+          treatment: "Neurological Disorders",
+          message: "",
+        });
+
+        onClose();
+      }, 2000);
+    } else {
+      setError(result.message || "Something went wrong.");
+    }
+  } catch (err: any) {
+    if (err.response?.data?.message) {
+      setError(err.response.data.message);
+    } else {
+      setError("Something went wrong. Please try again.");
+    }
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4 animate-fade-in">
@@ -151,11 +187,19 @@ export default function BookingModal({ isOpen, onClose }: BookingModalProps) {
                   className="w-full bg-[#f7f4f0] border border-[#680007]/15 px-4 py-3 text-sm focus:outline-none focus:border-[#680007] transition-colors resize-none"
                 />
               </div>
-
+          {error && (
+            <div className="rounded bg-red-100 border border-red-300 text-red-700 px-4 py-2 text-sm">
+              {error}
+            </div>
+          )}
               <div className="pt-2">
                 <StyledButton
-                  type="submit"
-                  className="w-full">Request Consultation</StyledButton>
+              type="submit"
+              className="w-full"
+              disabled={loading}
+            >
+              {loading ? "Submitting..." : "Request Consultation"}
+            </StyledButton>
               </div>
             </form>
           </div>

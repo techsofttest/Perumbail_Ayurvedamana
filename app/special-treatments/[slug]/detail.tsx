@@ -36,7 +36,7 @@ export default function SpecialTreatmentDetailPage({ params }: PageProps) {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   const openBooking = () => {
-    window.location.href = "/online-consultation";
+    window.location.href = "/medical-consultation";
   };
   const closeBooking = () => setIsBookingOpen(false);
   const [treatment, setTherapy] = useState<any>(null);
@@ -99,7 +99,7 @@ if (loading) return <div className="min-h-screen flex items-center justify-cente
             <DetailedSidebar
               title={treatment.care.title}
                 description={treatment.care.content}
-                buttonText="Inquire & Consult Now"
+                buttonText="Medical Consulting"
               onButtonClick={openBooking}
               backText="Back to Special Treatments"
               backHref="/special-treatments"

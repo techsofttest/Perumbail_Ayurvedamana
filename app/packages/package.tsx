@@ -31,7 +31,7 @@ export default function PackagesPage() {
     const [loading, setLoading] = useState(true);
 
     const openBooking = () => {
-        window.location.href = "/online-consultation";
+        window.location.href = "/medical-consultation";
     };
     const closeBooking = () => setIsBookingOpen(false);
 

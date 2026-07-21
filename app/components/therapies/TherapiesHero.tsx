@@ -4,8 +4,13 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { THERAPIES_LIST } from "@/app/therapies/data";
-
+interface TherapyData {
+  id:number;
+  title: string;
+  slug: string;
+  content: string;
+  image: string;
+}
 export default function TherapiesHero() {
   const router = useRouter();
   const heroRef = useRef<HTMLElement>(null);
@@ -14,7 +19,15 @@ export default function TherapiesHero() {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
-
+    const [therapy, setTherapies] = useState<TherapyData[]>([]);
+      useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/therapy`)
+      .then((res) => res.json())
+       .then((data) => {
+                      setTherapies(data.therapy);
+                  })
+      .catch(console.error);
+  }, []);
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -42,10 +55,10 @@ export default function TherapiesHero() {
   }, []);
 
   const filteredTherapies = searchQuery
-    ? THERAPIES_LIST.filter(
+    ? therapy.filter(
       (t) =>
         t.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        t.description.toLowerCase().includes(searchQuery.toLowerCase())
+        t.content.toLowerCase().includes(searchQuery.toLowerCase())
     )
     : [];
 
@@ -155,7 +168,7 @@ export default function TherapiesHero() {
                       <button
                         key={therapy.id}
                         onClick={() => {
-                          router.push(`/therapies/${therapy.id}`);
+                          router.push(`/therapies/${therapy.slug}`);
                           setSearchQuery("");
                           setShowDropdown(false);
                         }}
@@ -165,7 +178,7 @@ export default function TherapiesHero() {
                           {therapy.title}
                         </span>
                         <span className="text-[#3D0004]/60 font-light font-serif text-xs line-clamp-1 mt-0.5">
-                          {therapy.description}
+                          {therapy.content}
                         </span>
                       </button>
                     ))

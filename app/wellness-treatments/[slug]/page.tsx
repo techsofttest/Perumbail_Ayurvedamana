@@ -1,23 +1,25 @@
 import AboutClient from "./detail";
 import { Metadata } from "next";
 
-interface SeoPayload {
+interface TreatmentResponse {
+  id: number;
+  title: string;
+  slug: string;
+  content: string;
+  image: string;
+  highlights: string[];
   meta_title?: string;
   meta_key?: string;
   meta_desc?: string;
-  seo?: {
-    meta_title?: string;
-    meta_key?: string;
-    meta_desc?: string;
-  };
 }
 
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-async function getSEO(slug: string): Promise<SeoPayload> {
+async function getSEO(slug: string): Promise<TreatmentResponse> {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+
   const res = await fetch(`${baseUrl}/wellness-treatments/${slug}`, {
     cache: "no-store",
   });
@@ -28,16 +30,19 @@ async function getSEO(slug: string): Promise<SeoPayload> {
 
   return res.json();
 }
-
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const data = await getSEO(slug);
-  const seo = data.seo ?? data;
+
+  const treatment = await getSEO(slug);
 
   return {
-    title: seo.meta_title || "Ayurvedamana Wellness Treatment",
-    description: seo.meta_desc || "Read the detailed wellness treatment information.",
-    keywords: seo.meta_key,
+    title: treatment.meta_title || treatment.title,
+    description:
+      treatment.meta_desc ||
+      "Read the detailed wellness treatment information.",
+    keywords: treatment.meta_key,
   };
 }
 

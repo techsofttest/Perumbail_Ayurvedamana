@@ -272,7 +272,7 @@ export default function OnlineConsultationPage() {
                                 {onlineData.content.map((item, index) => (
                                     <p
                                         key={index}
-                                        className="font-serif text-sm text-[#3D0004]/70 leading-7"
+                                        className="font-serif text-sm lg:text-base text-white/80 leading-relaxed max-w-sm font-light"
                                     >
                                         {item}
                                     </p>
@@ -318,7 +318,7 @@ export default function OnlineConsultationPage() {
                                         STEP <span className="font-sans">{step}</span> OF <span className="font-sans">{totalSteps}</span> &bull; {stepNames[step - 1]}
                                     </span>
                                     <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#3D0004] tracking-tight uppercase leading-none">
-                                        Online Consultation
+                                        Medical Consultation
                                     </h2>
                                     <p className="font-serif text-sm text-[#3D0004]/60 leading-relaxed font-light mt-3">
                                         Fill out this detailed wellness questionnaire to help us plan your treatments accurately.

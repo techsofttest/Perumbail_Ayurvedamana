@@ -34,7 +34,7 @@ export default function WellnessTreatmentDetailPage({ params }: PageProps) {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   const openBooking = () => {
-    window.location.href = "/online-consultation";
+    window.location.href = "/medical-consultation";
   };
   const closeBooking = () => setIsBookingOpen(false);
 
@@ -96,6 +96,7 @@ export default function WellnessTreatmentDetailPage({ params }: PageProps) {
             <DetailedSidebar
               title={treatment.care.title}
                 description={treatment.care.content}
+                 buttonText="Medical Consulting"
               onButtonClick={openBooking}
               backText="Back to Wellness Treatments"
               backHref="/wellness-treatments"

@@ -17,7 +17,7 @@ export default function Home() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
 
   const openBooking = () => {
-    window.location.href = "/online-consultation";
+    window.location.href = "/medical-consultation";
   };
   const closeBooking = () => setIsBookingOpen(false);
 

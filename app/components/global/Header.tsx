@@ -81,10 +81,10 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
             {/* Right End: CTA Button */}
             <div className="hidden md:block">
               <StyledButton
-                href="/online-consultation"
+                href="/medical-consultation"
                 variant="secondary"
                 className="text-white border border-white/20 hover:bg-white/10 hover:text-white "
-              >Book Consultation</StyledButton>
+              >Medical Consultation</StyledButton>
             </div>
           </div>
         ) : (
@@ -146,7 +146,7 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
 
                   {/* Online Consultation Block (CTA) */}
                   <a
-                    href="/online-consultation"
+                    href="/medical-consultation"
                     className="flex items-center space-x-1.5 px-4 text-[10px] font-semibold uppercase tracking-wider border-l border-r cursor-pointer transition-colors text-[#3D0004] hover:text-[#b38e5d] border-[#680007]/10"
                   >
                     <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -155,7 +155,7 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
                       <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
                       <path d="M16 3.13a4 4 0 1 1 0 7.75" />
                     </svg>
-                    <span>Online Consultation</span>
+                    <span>Medical Consultation</span>
                   </a>
                 </div>
 
@@ -190,7 +190,7 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
                   href="/online-consultation"
                   className="px-4 py-2 text-[10px] uppercase font-bold tracking-widest rounded-sm transition-all duration-300 border cursor-pointer bg-[#680007] hover:bg-[#3D0004] text-[#faf8f5] border-[#680007] flex items-center justify-center"
                 >
-                  Book
+                  Medical
                 </a>
 
                 <button
@@ -307,7 +307,7 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
                     </a>
 
                     <a
-                      href="/online-consultation"
+                      href="/medical-consultation"
                       onClick={() => setMobileMenuOpen(false)}
                       className="w-full px-8 py-4 flex items-center justify-center space-x-3 bg-transparent hover:bg-white/5 text-[#faf8f5] border border-white/20 rounded-sm text-sm font-bold uppercase tracking-widest transition-all"
                     >
@@ -317,7 +317,7 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
                         <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
                         <path d="M16 3.13a4 4 0 1 1 0 7.75" />
                       </svg>
-                      <span>Online Consultation</span>
+                      <span>Medical Consultation</span>
                     </a>
                   </div>
                 </div>
@@ -337,7 +337,7 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
                 </a>
 
                 <a
-                  href="/online-consultation"
+                  href="/medical-consultation"
                   onClick={() => setMobileMenuOpen(false)}
                   className="w-full flex items-center justify-center space-x-2 bg-[#680007] hover:bg-[#3D0004] text-[#faf8f5] py-3 rounded-sm text-xs font-bold uppercase tracking-widest border border-white/15 cursor-pointer transition-colors"
                 >
@@ -347,7 +347,7 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
                     <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
                     <path d="M16 3.13a4 4 0 1 1 0 7.75" />
                   </svg>
-                  <span>Online Consultation</span>
+                  <span>Medical Consultation</span>
                 </a>
               </div>
 

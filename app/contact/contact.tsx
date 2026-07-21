@@ -287,7 +287,7 @@ export default function ContactPage() {
                   onClick={openBooking}
                   className="w-full text-center text-white"
                 >
-                  Consult Online Now
+                  Send Enquiry Now
                 </StyledButton>
               </div>
             </div>

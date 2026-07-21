@@ -14,7 +14,7 @@ interface DetailedSidebarProps {
 export default function DetailedSidebar({
   title = "Experience Authentic Healing",
   description = "Perumbayil Ayurvedamana offers authentic, traditional treatments in a heritage sanctuary, customized exactly to your unique body type.",
-  buttonText = "Book a Consultation",
+  buttonText = "Medical Consultation",
   onButtonClick,
   backText,
   backHref

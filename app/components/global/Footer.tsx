@@ -110,18 +110,20 @@ setEmail("");
 
           <div className="flex flex-wrap gap-6 items-center">
             <StyledButton
-              onClick={triggerBooking}
+             href="/medical-consultation"
+               onClick={triggerBooking}
               variant="secondary"
               className="bg-white hover:bg-[#b38e5d] text-[#3D0004] hover:text-white"
             >
-              Book Consultation
+              Medical Consultation
             </StyledButton>
             <StyledButton
+            href="/contact"
               onClick={triggerBooking}
               variant="secondary"
               className="text-white border-2 border-white/20  hover:bg-[#b38e5d] text-[#3D0004] hover:text-white"
             >
-              Request Treatment Plan
+              Send An Enquiry
             </StyledButton>
           </div>
 

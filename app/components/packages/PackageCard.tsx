@@ -64,7 +64,7 @@ export default function PackageCard({
                                 if (onOpenBooking) {
                                     onOpenBooking();
                                 } else {
-                                    window.location.href = "/online-consultation";
+                                    window.location.href = "/medical-consultation";
                                 }
                             }}
                         >

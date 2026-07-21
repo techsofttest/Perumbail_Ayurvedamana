@@ -96,7 +96,7 @@ export default function TreatmentsBento() {
                           }}
                           className="w-full max-w-[200px] bg-[#680007] hover:bg-[#3D0004] text-white py-2.5 text-xs font-bold uppercase tracking-widest transition-all duration-300 cursor-pointer"
                         >
-                          Book Consultation
+                          Medical Consultation
                         </button>
                       </div>
                     </div>
@@ -175,7 +175,7 @@ export default function TreatmentsBento() {
 
               {/* Grid details */}
               <div className="space-y-6">
-                <div>
+               {selectedTherapy.symptoms?.length > 0 && ( <div>
                   <h4 className="text-xs font-bold uppercase tracking-wider text-[#b38e5d] mb-3">
                     Core Indications / Symptoms Treated
                   </h4>
@@ -187,8 +187,8 @@ export default function TreatmentsBento() {
                       </li>
                     ))}
                   </ul>
-                </div>
-
+                </div>)}
+                {selectedTherapy.therapies?.length > 0 && (
                 <div className="border-t border-[#680007]/10 pt-6">
                   <h4 className="text-xs font-bold uppercase tracking-wider text-[#b38e5d] mb-3">
                     Traditional Lineage Therapies
@@ -203,7 +203,7 @@ export default function TreatmentsBento() {
                       </span>
                     ))}
                   </div>
-                </div>
+                </div>)}
               </div>
             </div>
 
@@ -213,17 +213,18 @@ export default function TreatmentsBento() {
                 <span className="text-xs font-bold text-[#3D0004]/60 uppercase">Recommended Stay</span>
                 <span className="text-sm font-bold text-[#3D0004]">{selectedTherapy.duration}</span>
               </div>
-              <button
-                onClick={() => {
-                  setSelectedTherapy(null);
-                  // Open booking directly
-                  const btn = document.querySelector('[data-booking-trigger]') as HTMLButtonElement;
-                  if (btn) btn.click();
-                }}
+              <StyledButton
+                  onClick={() => {
+                        const btn = document.querySelector(
+                          "[data-booking-trigger]"
+                        ) as HTMLButtonElement | null;
+
+                        btn?.click();
+                      }}
                 className="w-full bg-[#680007] hover:bg-[#3D0004] text-[#faf8f5] py-4 uppercase font-bold tracking-widest text-xs transition-colors cursor-pointer"
               >
                 Consult On This Condition
-              </button>
+              </StyledButton>
             </div>
           </div>
         </div>

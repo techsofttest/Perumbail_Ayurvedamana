@@ -184,7 +184,7 @@ export default function ProductDetailedPage({ params }: PageProps) {
                   </p>
                 </div>
 
-                {/* Key Benefits */}
+                {/* Key Benefits */}{product.benefits?.length > 0 && (
                 <div className="pt-6 border-t border-[#680007]/10">
                   <h3 className="font-serif text-lg font-medium text-[#680007] uppercase mb-4">
                     Therapeutic & Wellness Benefits
@@ -197,9 +197,9 @@ export default function ProductDetailedPage({ params }: PageProps) {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </div>)}
 
-                {/* Recommended Usage */}
+                {/* Recommended Usage */}{product.usage && (
                 <div className="pt-6 border-t border-[#680007]/10">
                   <h3 className="font-serif text-lg font-medium text-[#680007] uppercase mb-3">
                     Recommended Usage
@@ -207,9 +207,9 @@ export default function ProductDetailedPage({ params }: PageProps) {
                   <p className="font-serif text-base text-[#3D0004]/80 leading-relaxed font-light">
                     {product.usage}
                   </p>
-                </div>
+                </div>)}
 
-                {/* Key Ingredients */}
+                {/* Key Ingredients */}{product.ingredients?.length > 0 && (
                 <div className="pt-6 border-t border-[#680007]/10">
                   <h3 className="font-serif text-lg font-medium text-[#680007] uppercase mb-4">
                     Key Herbal Ingredients
@@ -224,7 +224,7 @@ export default function ProductDetailedPage({ params }: PageProps) {
                       </span>
                     ))}
                   </div>
-                </div>
+                </div>)}
               </div>
 
               {/* Right Column: Inquiry / Checkout Block */}

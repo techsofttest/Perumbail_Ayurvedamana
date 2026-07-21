@@ -125,7 +125,7 @@ const filteredProducts = useMemo(() => {
                     <span
                       className="w-full max-w-[160px] bg-[#A3000B] hover:bg-[#faf8f5] text-white hover:text-[#3D0004] py-2 text-xs font-bold uppercase tracking-widest transition-all duration-300 cursor-pointer text-center"
                     >
-                      Buy It Now
+                      Enquiry Now
                     </span>
                   </div>
                 </div>
@@ -146,6 +146,11 @@ const filteredProducts = useMemo(() => {
                     </span>
                     <span className="text-lg font-bold text-[#680007]">
                       ₹{product.offerprice}
+                    </span>
+                    <span
+                      className="w-full max-w-[160px] bg-[#A3000B] hover:bg-[#faf8f5] text-white hover:text-[#3D0004] py-2 text-xs font-bold uppercase tracking-widest transition-all duration-300 cursor-pointer text-center"
+                    >
+                      Enquiry Now
                     </span>
                   </div>
                 </div>

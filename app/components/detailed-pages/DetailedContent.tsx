@@ -32,7 +32,7 @@ export default function DetailedContent({
             </h2>
           </div>
 
-          <div className="font-serif text-lg md:text-xl text-[#3D0004]/80 leading-relaxed font-light space-y-6">
+          <div className="font-serif text-lg md:text-xl text-[#3D0004]/80 leading-relaxed font-light space-y-6   [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2 [&_strong]:font-bold [&_b]:font-bold">
             {description.map((item, index) => (
               <div
                 key={index}

@@ -77,7 +77,7 @@ export default function TherapyDetailedPage({ params }: PageProps) {
                 aboutLabel="About the Treatment"
                 mainTitle="Description"
                 description={therapy.description}
-                inclusionsTitle="Benefits"
+                inclusionsTitle="Benifit"
                 inclusions={therapy.benefits}
                 therapyTitle="Traditional Lineage Therapies"
                 therapy={therapy.therapy}

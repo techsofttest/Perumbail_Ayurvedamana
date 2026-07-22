@@ -122,7 +122,9 @@ export default function HistoryPage() {
                     dangerouslySetInnerHTML={{ __html: pageContent.p1 }}
                   />
                   <div
-                    className="font-serif text-base md:text-lg text-[#3D0004]/80 leading-relaxed font-light"
+                    className="font-serif text-base md:text-lg text-[#3D0004]/80 leading-relaxed font-light  prose-p:text-[#5C4033]
+    prose-strong:font-bold
+    prose-strong:text-[#3D0004]"
                     dangerouslySetInnerHTML={{ __html: pageContent.p2 }}
                   />
                 </motion.div>

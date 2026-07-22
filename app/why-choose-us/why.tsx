@@ -61,7 +61,9 @@ export default function WhyChooseUsPage() {
 
           <div
             className="font-serif text-lg md:text-xl text-[#3D0004]/80 leading-relaxed font-light text-justify
-            [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2"
+            [&_ul]:list-disc [&_ul]:pl-6 [&_ol]:list-decimal [&_ol]:pl-6 [&_li]:mb-2  prose-p:text-[#5C4033]
+    prose-strong:font-bold
+    prose-strong:text-[#3D0004]"
             dangerouslySetInnerHTML={{ __html: firstItem.description }}
           />
         </div>

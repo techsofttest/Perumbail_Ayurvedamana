@@ -140,9 +140,8 @@ export default function FacilitiesPage() {
                       </h2>
                     </div>
 
-                    <p className="font-serif text-lg md:text-xl text-[#3D0004]/80 leading-relaxed font-light whitespace-pre-line">
-                      {facility.content}
-                    </p>
+                    <p className="font-serif text-lg md:text-xl text-[#3D0004]/80 leading-relaxed font-light whitespace-pre-line"dangerouslySetInnerHTML={{ __html: facility.content }}/>
+                      
                   </div>
                 </motion.div>
               );

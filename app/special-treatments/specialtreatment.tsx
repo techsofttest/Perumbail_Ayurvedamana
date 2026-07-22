@@ -81,7 +81,7 @@ export default function SpecialTreatmentsPage() {
               {/* Subtitle */}
               <div className="max-w-md text-left md:text-right">
                 <p className="font-serif text-xs md:text-sm text-white/90 font-medium uppercase tracking-widest leading-relaxed">
-                  Targeted, lineage-based Ayurvedic interventions <br /> delivered with century-old precision.
+                  Personalized Ayurvedic Care for a Wide Range of Health Conditions
                 </p>
               </div>
             </div>

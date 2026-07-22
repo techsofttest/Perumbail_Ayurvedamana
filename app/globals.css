@@ -63,7 +63,11 @@ body::before {
   /* You can adjust this value */
   z-index: -1;
 }
-
+.prose strong,
+.prose b{
+    font-weight:700;
+    color:#3D0004;
+}
 /* Site-wide fixed paper background texture class utility */
 .bg-site-texture {
   /* This class can now be removed or repurposed if the body background is sufficient */

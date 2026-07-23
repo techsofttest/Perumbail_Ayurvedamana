@@ -40,13 +40,15 @@ interface PackageData {
 export default function PackageDetailedPage({ params }: PageProps) {
     const resolvedParams = use(params);
     const slug = resolvedParams.slug;
+const [isBookingOpen, setIsBookingOpen] = useState(false);
 
-    const [isBookingOpen, setIsBookingOpen] = useState(false);
+const openBooking = () => {
+  setIsBookingOpen(true);
+};
 
-    const openBooking = () => {
-        window.location.href = "/online-consultation";
-    };
-    const closeBooking = () => setIsBookingOpen(false);
+const closeBooking = () => {
+  setIsBookingOpen(false);
+};
 
     // Look up the package data
      const [pkg, setTherapy] = useState<any>(null);

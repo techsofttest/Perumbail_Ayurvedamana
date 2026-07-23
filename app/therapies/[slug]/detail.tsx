@@ -37,8 +37,14 @@ export default function TherapyDetailedPage({ params }: PageProps) {
       });
   }, [slug]);
 
-  const openBooking = () => (window.location.href = "/online-consultation");
-  const closeBooking = () => setIsBookingOpen(false);
+
+const openBooking = () => {
+  setIsBookingOpen(true);
+};
+
+const closeBooking = () => {
+  setIsBookingOpen(false);
+};
 
   if (loading) return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
 

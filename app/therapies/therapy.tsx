@@ -12,10 +12,13 @@ import FeaturedTherapy from "../components/therapies/FeaturedTherapy";
 export default function TherapiesPage() {
   const [isBookingOpen, setIsBookingOpen] = useState(false);
 
-  const openBooking = () => {
-    window.location.href = "/medical-consultation";
-  };
-  const closeBooking = () => setIsBookingOpen(false);
+const openBooking = () => {
+  setIsBookingOpen(true);
+};
+
+const closeBooking = () => {
+  setIsBookingOpen(false);
+};
 
   return (
     <div className="relative flex flex-col min-h-screen text-[#3D0004] overflow-x-clip selection:bg-[#a84e32]/25 selection:text-[#3D0004]">

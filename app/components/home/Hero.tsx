@@ -4,7 +4,10 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import TrustIndicators from "./TrustIndicators";
+import StyledButton from "../ui/StyledButton";
 import { FaPlay } from "react-icons/fa6";
+import VideoLightboxModal from "../ui/VideoLightbox";
+
 interface HeroProps {
   onOpenBooking: () => void;
 }
@@ -16,10 +19,11 @@ interface HeroImage {
 export default function Hero({ onOpenBooking }: HeroProps) {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-  const heroRef = useRef<HTMLElement>(null);
+  const heroRef = useRef<HTMLElement>(null); // kept for future use
   const [data, setData] = useState<HeroImage[]>([]);
   const [loading, setLoading] = useState(true);
-const [indexPage, setIndexPage] = useState<string[]>([]);
+  const [indexPage, setIndexPage] = useState<string[]>([]);
+  const [videoModal, setVideoModal] = useState<{ title: string ; url: string} | null>(null);
 
 const { scrollYProgress } = useScroll({
     offset: ["start start", "end start"],
@@ -48,7 +52,7 @@ const { scrollYProgress } = useScroll({
         setData(slides);
         setCurrentSlide(0);
 
-  setIndexPage(payload.indexpage?.content || []);
+        setIndexPage(payload.indexpage?.content || []);
       })
       .catch((err) => {
         console.error(err);
@@ -94,10 +98,11 @@ const { scrollYProgress } = useScroll({
     );
   }
   return (
+    <>
     <motion.section
       ref={heroRef}
       className="relative w-full h-[90vh] min-h-[480px] lg:min-h-[520px] overflow-hidden bg-[#3D0004] font-serif"
-      style={{ scale, borderRadius, opacity }}
+      style={{ scale, borderRadius ,opacity }}
     >
       <style>{`
         @keyframes progressBar {
@@ -203,19 +208,39 @@ const { scrollYProgress } = useScroll({
           <FaPlay className="text-[10px] text-white/80 group-hover:text-white transition-colors" />
           <span className="font-serif text-[15px] font-medium tracking-wide">Treatment Videos</span>
         </a>
-        <a href="https://youtu.be/3dtY9cxJlBQ" className="flex items-center justify-center h-[40px] space-x-3 bg-transparent hover:bg-white/10 px-6 rounded-sm text-white transition-all border border-white/30 hover:border-white/60 group">
-          <FaPlay className="text-[10px] text-white/80 group-hover:text-white transition-colors" />
-          <span className="font-serif text-[15px] font-medium tracking-wide">A day @ Ayurvedamana</span>
-        </a>
-        <a href="/Perumbayil-Brochure-EN" className="flex items-center justify-center h-[40px] space-x-3 bg-transparent hover:bg-white/10 px-6 rounded-sm text-white transition-all border border-white/30 hover:border-white/60 group">
+       <a
+  href="https://youtu.be/3dtY9cxJlBQ"
+  onClick={(e) => {
+    e.preventDefault(); // Prevents navigating to YouTube directly
+    setVideoModal({
+      title: "A day @ Ayurvedamana",
+      url: "https://youtu.be/3dtY9cxJlBQ",
+    });
+  }}
+  className="flex items-center justify-center h-[40px] space-x-3 bg-transparent hover:bg-white/10 px-6 rounded-sm text-white transition-all border border-white/30 hover:border-white/60 group cursor-pointer"
+>
+  <FaPlay className="text-[10px] text-white/80 group-hover:text-white transition-colors" />
+  <span className="font-serif text-[15px] font-medium tracking-wide">A day @ Ayurvedamana</span>
+</a>
+        <a href="/Perumbayil-Brochure-EN.pdf"   target="_blank"
+  rel="noopener noreferrer" className="flex items-center justify-center h-[40px] space-x-3 bg-transparent hover:bg-white/10 px-6 rounded-sm text-white transition-all border border-white/30 hover:border-white/60 group">
           <Image src="/flags/en-icon.png" alt="EN" width={18} height={14} className="opacity-90 group-hover:opacity-100 transition-opacity drop-shadow-sm" />
           <span className="font-serif text-[15px] font-medium tracking-wide">E-Brochure EN</span>
         </a>
-        <a href="Perumbayil-Brochure-RU" className="flex items-center justify-center h-[40px] space-x-3 bg-transparent hover:bg-white/10 px-6 rounded-sm text-white transition-all border border-white/30 hover:border-white/60 group">
+        <a href="/Perumbayil-Brochure-RU.pdf"  target="_blank"
+  rel="noopener noreferrer" className="flex items-center justify-center h-[40px] space-x-3 bg-transparent hover:bg-white/10 px-6 rounded-sm text-white transition-all border border-white/30 hover:border-white/60 group">
           <Image src="/flags/ru-icon.png" alt="RU" width={18} height={14} className="opacity-90 group-hover:opacity-100 transition-opacity drop-shadow-sm" />
           <span className="font-serif text-[15px] font-medium tracking-wide">E-Brochure RU</span>
         </a>
       </div>
     </motion.section>
+{videoModal && (
+  <VideoLightboxModal
+    title={videoModal.title}
+    videos={[videoModal.url]}
+    onClose={() => setVideoModal(null)}
+  />
+)}
+    </>
   );
 }

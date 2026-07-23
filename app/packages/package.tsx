@@ -30,10 +30,14 @@ export default function PackagesPage() {
     const [packages, setPackages] = useState<PackageData[]>([]);
     const [loading, setLoading] = useState(true);
 
-    const openBooking = () => {
-        window.location.href = "/medical-consultation";
-    };
-    const closeBooking = () => setIsBookingOpen(false);
+
+const openBooking = () => {
+  setIsBookingOpen(true);
+};
+
+const closeBooking = () => {
+  setIsBookingOpen(false);
+};
 
     useEffect(() => {
         fetch(`${process.env.NEXT_PUBLIC_API_URL}/package`)

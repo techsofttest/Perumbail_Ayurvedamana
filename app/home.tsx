@@ -14,12 +14,15 @@ import WhyChooseCarousel from "./components/home/WhyChooseCarousel";
 import BookingModal from "./components/ui/BookingModal";
 
 export default function Home() {
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
+const [isBookingOpen, setIsBookingOpen] = useState(false);
 
-  const openBooking = () => {
-    window.location.href = "/medical-consultation";
-  };
-  const closeBooking = () => setIsBookingOpen(false);
+const openBooking = () => {
+  setIsBookingOpen(true);
+};
+
+const closeBooking = () => {
+  setIsBookingOpen(false);
+};
 
   return (
     <div className="flex flex-col min-h-screen bg-transparent text-[#3D0004] overflow-x-hidden selection:bg-[#a84e32]/25 selection:text-[#3D0004]">

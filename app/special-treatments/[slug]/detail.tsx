@@ -35,10 +35,13 @@ export default function SpecialTreatmentDetailPage({ params }: PageProps) {
   const slug = resolvedParams.slug;
   const [isBookingOpen, setIsBookingOpen] = useState(false);
 
-  const openBooking = () => {
-    window.location.href = "/medical-consultation";
-  };
-  const closeBooking = () => setIsBookingOpen(false);
+const openBooking = () => {
+  setIsBookingOpen(true);
+};
+
+const closeBooking = () => {
+  setIsBookingOpen(false);
+};
   const [treatment, setTherapy] = useState<any>(null);
     const [loading, setLoading] = useState(true);
 

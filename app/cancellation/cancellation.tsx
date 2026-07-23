@@ -7,7 +7,15 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 
 export default function CancellationRefundPage() {
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
+const [isBookingOpen, setIsBookingOpen] = useState(false);
+
+const openBooking = () => {
+  setIsBookingOpen(true);
+};
+
+const closeBooking = () => {
+  setIsBookingOpen(false);
+};
 
   const refundPolicy = [
     { period: "45–60 days", refund: "75% Refund" },
@@ -26,9 +34,7 @@ export default function CancellationRefundPage() {
     <div className="relative flex flex-col min-h-screen bg-[#faf8f5] text-[#3D0004] overflow-x-hidden">
 
       <Header
-        onOpenBooking={() =>
-          (window.location.href = "/medical-consultation")
-        }
+       onOpenBooking={openBooking} 
         forceSolid={true}
       />
 

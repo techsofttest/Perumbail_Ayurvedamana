@@ -34,10 +34,13 @@ export default function PhysiciansPage() {
   const [data, setData] = useState<ApiResponse | null>(null);
   const [loading, setLoading] = useState(true);
 
-  const openBooking = () => {
-    window.location.href = "/online-consultation";
-  };
-  const closeBooking = () => setIsBookingOpen(false);
+const openBooking = () => {
+  setIsBookingOpen(true);
+};
+
+const closeBooking = () => {
+  setIsBookingOpen(false);
+};
 
   // 2. Fetch dataset from your Laravel backend API environment route
   useEffect(() => {

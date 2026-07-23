@@ -6,7 +6,6 @@ import Image from "next/image";
 import Header from "../../components/global/Header";
 import Footer from "../../components/global/Footer";
 import BookingModal from "../../components/ui/BookingModal";
-import VideoLightboxModal from "../../components/ui/VideoLightbox";
 
 interface CategoryPageProps {
   params: Promise<{ category: string }>;
@@ -200,15 +199,67 @@ export default function CategoryVideoGalleryPage({ params }: CategoryPageProps) 
       {/* Footer */}
       <Footer />
 
-      {/* Video Lightbox Modal */}
-      <VideoLightboxModal
-        videos={gallery.video}
-        title={gallery.title}
-        initialIndex={activeVideoIndex}
-        onClose={() => setActiveVideoIndex(null)}
-        onNext={showNext}
-        onPrev={showPrev}
-      />
+      {/* Premium Full-Screen Video Lightbox Modal */}
+      {activeVideoIndex !== null && (
+        <div
+          className="fixed inset-0 z-50 flex flex-col justify-between bg-black/95 text-white z-[99999]"
+          onClick={() => setActiveVideoIndex(null)}
+        >
+          {/* Top Bar */}
+          <div className="flex items-center justify-between p-6">
+            <span className="font-serif text-sm uppercase tracking-widest text-white/70">
+              {gallery.title} &mdash; <span className="font-sans">{activeVideoIndex + 1}</span> / <span className="font-sans">{videos.length}</span>
+            </span>
+            <button
+              onClick={() => setActiveVideoIndex(null)}
+              className="text-white text-3xl font-light hover:text-white/70 transition-colors cursor-pointer"
+              aria-label="Close lightbox"
+            >
+              &times;
+            </button>
+          </div>
+
+          {/* Main Interactive Slide */}
+          <div className="relative flex-grow flex items-center justify-center p-4">
+            {/* Left Button */}
+            {gallery.video.length > 1 && (
+              <button
+                onClick={showPrev}
+                className="absolute left-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all hover:scale-105 active:scale-95 text-2xl cursor-pointer z-10 select-none"
+                aria-label="Previous video"
+              >
+                &#8592;
+              </button>
+            )}
+
+            {/* Video Player Container */}
+            <div className="relative w-full max-w-4xl aspect-[16/9] shadow-2xl" onClick={(e) => e.stopPropagation()}>
+              <video
+                src={gallery.video[activeVideoIndex]}
+                autoPlay
+                controls
+                className="w-full h-full object-contain outline-none bg-black"
+              />
+            </div>
+
+            {/* Right Button */}
+            {gallery.video.length > 1 && (
+              <button
+                onClick={showNext}
+                className="absolute right-6 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all hover:scale-105 active:scale-95 text-2xl cursor-pointer z-10 select-none"
+                aria-label="Next video"
+              >
+                &#8594;
+              </button>
+            )}
+          </div>
+
+          {/* Bottom Bar Caption */}
+          <div className="p-6 text-center text-sm font-serif text-white/50">
+            Click outside or press Esc to close
+          </div>
+        </div>
+      )}
 
       {/* Booking Modal */}
       <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />

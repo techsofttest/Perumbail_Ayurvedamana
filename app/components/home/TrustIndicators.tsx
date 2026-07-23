@@ -85,9 +85,11 @@ function LaurelWreathRight({ className }: { className?: string }) {
 export default function TrustIndicators({
   isHero = false,
   content = [],
+  className = "",
 }: {
   isHero?: boolean;
   content?: string[];
+  className?: string;
 }) {
 
   const indicators = [
@@ -136,8 +138,8 @@ export default function TrustIndicators({
     <section
       className={
         isHero
-          ? "absolute bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-black/85 via-black/40 to-transparent py-6 lg:py-8 text-[#faf8f5] font-serif"
-          : "bg-white text-[#3D0004] py-12 border-b border-[#3D0004]/10 font-serif"
+          ? `absolute bottom-20 left-0 right-0 z-10 py-6 lg:py-8 text-[#faf8f5] font-serif ${className}`
+          : `bg-white text-[#3D0004] py-12 border-b border-[#3D0004]/10 font-serif ${className}`
       }
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12">

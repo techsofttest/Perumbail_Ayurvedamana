@@ -46,7 +46,62 @@ body {
   position: relative;
   z-index: 1;
 }
+.physician-content{
+    color:#5b3c35;
+    font-size:20px;
+    line-height:2;
+}
 
+.physician-content h2{
+    font-size:52px;
+    font-family: var(--font-playfair);
+    color:#3D0004;
+    margin-bottom:40px;
+    line-height:1.2;
+    font-weight:500;
+}
+
+.physician-content h3{
+    font-size:34px;
+    color:#3D0004;
+    font-family: var(--font-playfair);
+    margin-top:70px;
+    margin-bottom:25px;
+    font-weight:500;
+}
+
+.physician-content p{
+    margin-bottom:24px;
+}
+
+.physician-content strong{
+    color:#3D0004;
+    font-weight:700;
+}
+
+.physician-content em{
+    font-style:italic;
+}
+
+.physician-content hr{
+    border:none;
+    border-top:1px solid #d8c7ba;
+    margin:60px 0;
+}
+
+.physician-content span{
+    color:#9c6b46 !important;
+    font-size:18px;
+    font-weight:600;
+}
+
+.physician-content ul{
+    margin:20px 0 20px 30px;
+}
+
+.physician-content li{
+    margin-bottom:12px;
+}
 body::before {
   content: '';
   position: fixed;

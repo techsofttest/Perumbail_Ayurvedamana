@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import TrustIndicators from "./TrustIndicators";
-
+import { FaPlay } from "react-icons/fa6";
 interface HeroProps {
   onOpenBooking: () => void;
 }
@@ -139,6 +139,7 @@ const { scrollYProgress } = useScroll({
 
       {/* Gradient Overlay on Top-Left Corner only for text contrast */}
       <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/30 via-30% to-transparent to-60% z-5"></div>
+ <div className="absolute inset-x-0 bottom-0 h-72 bg-gradient-to-t from-black/90 via-black/45 to-transparent z-5 pointer-events-none"></div>
 
       {/* Top-Left Content: Title & Chapter */}
       <div
@@ -185,7 +186,6 @@ const { scrollYProgress } = useScroll({
               </svg>
             </button>
           </div>
-
           {/* Current slide tagline */}
           {/* <span className="text-[9px] text-white/40 tracking-widest uppercase font-mono pl-1">
             {data[currentSlide].shortName}
@@ -198,6 +198,24 @@ const { scrollYProgress } = useScroll({
   isHero={true}
   content={indexPage}
 />
+ <div className="absolute z-40 bottom-6 left-0 right-0 w-full flex flex-wrap justify-center items-center gap-4 px-4">
+        <a href="/video-gallery" className="flex items-center justify-center h-[40px] space-x-3 bg-transparent hover:bg-white/10 px-6 rounded-sm text-white transition-all border border-white/30 hover:border-white/60 group">
+          <FaPlay className="text-[10px] text-white/80 group-hover:text-white transition-colors" />
+          <span className="font-serif text-[15px] font-medium tracking-wide">Treatment Videos</span>
+        </a>
+        <a href="https://youtu.be/3dtY9cxJlBQ" className="flex items-center justify-center h-[40px] space-x-3 bg-transparent hover:bg-white/10 px-6 rounded-sm text-white transition-all border border-white/30 hover:border-white/60 group">
+          <FaPlay className="text-[10px] text-white/80 group-hover:text-white transition-colors" />
+          <span className="font-serif text-[15px] font-medium tracking-wide">A day @ Ayurvedamana</span>
+        </a>
+        <a href="/Perumbayil-Brochure-EN" className="flex items-center justify-center h-[40px] space-x-3 bg-transparent hover:bg-white/10 px-6 rounded-sm text-white transition-all border border-white/30 hover:border-white/60 group">
+          <Image src="/flags/en-icon.png" alt="EN" width={18} height={14} className="opacity-90 group-hover:opacity-100 transition-opacity drop-shadow-sm" />
+          <span className="font-serif text-[15px] font-medium tracking-wide">E-Brochure EN</span>
+        </a>
+        <a href="Perumbayil-Brochure-RU" className="flex items-center justify-center h-[40px] space-x-3 bg-transparent hover:bg-white/10 px-6 rounded-sm text-white transition-all border border-white/30 hover:border-white/60 group">
+          <Image src="/flags/ru-icon.png" alt="RU" width={18} height={14} className="opacity-90 group-hover:opacity-100 transition-opacity drop-shadow-sm" />
+          <span className="font-serif text-[15px] font-medium tracking-wide">E-Brochure RU</span>
+        </a>
+      </div>
     </motion.section>
   );
 }

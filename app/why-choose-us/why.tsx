@@ -70,7 +70,9 @@ export default function WhyChooseUsPage() {
       </section>
 
       {/* Remaining sections */}
-      <ZigzagSectionList items={remainingItems} />
+      <ZigzagSectionList items={remainingItems}
+     enableImageModal/>
     </ZigzagPageLayout>
+
   );
 }

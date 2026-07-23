@@ -98,9 +98,7 @@ export default function PhysiciansPage() {
     <div className="max-w-5xl mx-auto">
 
       <div className="mb-16">
-        <p className="uppercase tracking-[0.35em] text-sm text-[#9c6b46] mb-4">
-          Our Physicians
-        </p>
+
 
         <h2 className="text-4xl lg:text-5xl font-serif text-[#3D0004] mb-8 leading-tight">
           Guided by the Wisdom of the Ashtavaidya Tradition

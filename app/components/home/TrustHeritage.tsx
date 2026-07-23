@@ -33,7 +33,8 @@ export default function TrustHeritage() {
     }, []);
     // Framer Motion scroll animations
     const { scrollYProgress } = useScroll({
-        offset: ["start end", "end end"]
+        target: sectionRef,
+        offset: ["start end", "end start"]
     });
 
     const imageScale = useTransform(scrollYProgress, [0, 0.8], [0.5, 1]);

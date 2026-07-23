@@ -109,7 +109,17 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
               <div className="hidden xl:flex flex-col items-end">
                 {/* Level 1: Top Bar (Desktop Only) - Now Boxed */}
                 <div className="flex p-4 items-center transition-all duration-300 rounded-b-lg bg-[#3D0004]/5">
-                  {/* Products Block */}
+
+                 <a
+                    href="/gallery"
+                    className="flex items-center space-x-1.5 px-4 text-[10px] font-semibold uppercase tracking-wider border-l transition-colors text-[#3D0004] hover:text-[#b38e5d] border-[#680007]/10"
+                  >
+                    <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517L5.05 15.2c-.315-.063-.648.024-.897.24a2 2 0 00-.547 1.022l-.78 3.896a1 1 0 00.98 1.196h16.216a1 1 0 00.98-1.196l-.78-3.896zM12 3v3m0 0a3 3 0 100 6 3 3 0 000-6z" />
+                    </svg>
+                    <span>Gallery</span>
+                  </a>
+
                   <a
                     href="/products"
                     className="flex items-center space-x-1.5 px-4 text-[10px] font-semibold uppercase tracking-wider border-l transition-colors text-[#3D0004] hover:text-[#b38e5d] border-[#680007]/10"
@@ -122,7 +132,7 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
 
                   {/* Guruvayur Block */}
                   <a
-                    href="#footer"
+                    href="/contact"
                     className="flex items-center space-x-1.5 px-4 text-[10px] font-semibold uppercase tracking-wider border-l transition-colors text-[#3D0004] hover:text-[#b38e5d] border-[#680007]/10"
                   >
                     <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -133,16 +143,26 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
                   </a>
 
                   {/* Send an Enquiry Block */}
-                  <a
-                    href="#footer"
+                  <button
+                    type="button"
+                    onClick={onOpenBooking}
                     className="flex items-center space-x-1.5 px-4 text-[10px] font-semibold uppercase tracking-wider border-l transition-colors text-[#3D0004] hover:text-[#b38e5d] border-[#680007]/10"
                   >
-                    <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg
+                      className="w-3.5 h-3.5"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
                       <rect x="2" y="4" width="20" height="16" rx="2" />
                       <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                     </svg>
+
                     <span>Send An Enquiry</span>
-                  </a>
+                  </button>
 
                   {/* Online Consultation Block (CTA) */}
                   <a
@@ -359,6 +379,7 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
             </div>
           </div>
         </div>
+        
       )}
     </>
   );

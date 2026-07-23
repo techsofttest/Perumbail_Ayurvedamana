@@ -7,9 +7,11 @@ import Autoplay from "embla-carousel-autoplay";
 
 interface DetailedCarouselProps {
   images: string[];
+  onImageClick?: (image: string) => void;
 }
 
-export default function DetailedCarousel({ images }: DetailedCarouselProps) {
+
+export default function DetailedCarousel({ images,onImageClick }: DetailedCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" }, [
     Autoplay({ delay: 5000, stopOnInteraction: true }),
   ]);
@@ -33,7 +35,10 @@ export default function DetailedCarousel({ images }: DetailedCarouselProps) {
                 alt={`Slide ${index + 1}`}
                 fill
                 sizes="100vw"
-                className="object-cover"
+                 className={`object-cover ${
+    onImageClick ? "cursor-zoom-in" : ""
+  }`}
+ onClick={() => onImageClick?.(imgSrc)}
                 priority={index === 0}
               />
             </div>

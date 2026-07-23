@@ -1,8 +1,11 @@
-"use client";
-
+import { useState } from "react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import DetailedCarousel from "../detailed-pages/DetailedCarousel";
-
+interface DetailedCarouselProps {
+  images: string[];
+  onImageClick?: (image: string) => void;
+}
 export interface ZigzagItem {
   title: string;
   tagline: string;
@@ -12,10 +15,16 @@ export interface ZigzagItem {
 
 interface ZigzagSectionListProps {
   items: ZigzagItem[];
+  enableImageModal?: boolean;
 }
 
-export default function ZigzagSectionList({ items }: ZigzagSectionListProps) {
+export default function ZigzagSectionList({
+  items,
+  enableImageModal = false,
+}: ZigzagSectionListProps) {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   return (
+    <>
     <section className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24">
       {/* Sections List - ZIGZAG Layout */}
       <div className="space-y-24 md:space-y-36">
@@ -34,7 +43,11 @@ export default function ZigzagSectionList({ items }: ZigzagSectionListProps) {
               <div className={`md:col-span-6 overflow-hidden rounded-none border border-[#680007]/10 ${
                 isEven ? "md:order-first" : "md:order-last"
               }`}>
-                <DetailedCarousel images={item.images} />
+                <DetailedCarousel images={item.images}   onImageClick={
+    enableImageModal
+      ? (image) => setSelectedImage(image)
+      : undefined
+  }/>
               </div>
 
               {/* Right/Left Column: Title + Description */}
@@ -55,5 +68,29 @@ export default function ZigzagSectionList({ items }: ZigzagSectionListProps) {
         })}
       </div>
     </section>
+    {enableImageModal && selectedImage && (
+    <div
+        className="fixed inset-0 z-[9999] bg-black/90 flex items-center justify-center p-6"
+        onClick={() => setSelectedImage(null)}
+    >
+        <button
+            onClick={() => setSelectedImage(null)}
+            className="absolute top-6 right-6 text-white text-4xl"
+        >
+            ×
+        </button>
+
+        <Image
+            src={selectedImage}
+            alt=""
+            width={1400}
+            height={900}
+            className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg"
+            onClick={(e) => e.stopPropagation()}
+        />
+    </div>
+)}
+</>
   );
+
 }

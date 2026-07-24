@@ -167,6 +167,13 @@ export default function CategoryGalleryPage({ params }: CategoryPageProps) {
 
         {/* Image Grid */}
         <section className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24 font-serif">
+          <div className="max-w-2xl text-right">
+          <Link
+                  href="/gallery"
+                  className="font-serif text-xs md:text-sm text-white/70 hover:text-white uppercase tracking-wider mb-2 inline-block"
+                >
+                  &larr; Back to Gallery
+                </Link></div>
           {images.length === 0 ? (
             <p className="text-center text-lg">No images uploaded to this gallery yet.</p>
           ) : (

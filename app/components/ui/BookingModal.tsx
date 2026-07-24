@@ -69,12 +69,27 @@ const handleSubmit = async (e: React.FormEvent) => {
 };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-xs p-4 animate-fade-in">
+   <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/40 backdrop-blur-sm p-4 animate-fade-in">
       {/* Backdrop click to close */}
       <div className="absolute inset-0" onClick={onClose}></div>
 
       {/* Modal Container */}
-      <div className="relative z-10 w-full max-w-xl bg-[#faf8f5] text-[#3D0004] border border-[#680007]/15 shadow-xl p-8 md:p-10 font-serif animate-slide-up">
+      <div
+  className="
+    relative z-10
+    w-full max-w-xl
+    max-h-[90vh]
+    overflow-y-auto
+    bg-[#faf8f5]
+    text-[#3D0004]
+    border border-[#680007]/15
+    shadow-xl
+    p-5 sm:p-6 md:p-8 lg:p-10
+    font-serif
+    animate-slide-up
+    rounded-lg
+  "
+>
         {/* Close Button */}
         <button
           onClick={onClose}
@@ -102,7 +117,7 @@ const handleSubmit = async (e: React.FormEvent) => {
               <span className="text-xs font-semibold tracking-[0.2em] uppercase text-[#a84e32]">
                 NABH ACCREDITED CARE
               </span>
-              <h2 className="font-serif text-3xl md:text-4xl text-[#3D0004] mt-1">
+              <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#3D0004] mt-1">
                 Consultation Enquiry
               </h2>
               <p className="text-xs text-[#3D0004]/65 mt-2">
@@ -110,7 +125,7 @@ const handleSubmit = async (e: React.FormEvent) => {
               </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5">
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider mb-2 text-[#3D0004]">
                   Full Name
@@ -195,7 +210,7 @@ const handleSubmit = async (e: React.FormEvent) => {
               <div className="pt-2">
                 <StyledButton
               type="submit"
-              className="w-full"
+              className="w-full cursor-pointer"
               disabled={loading}
             >
               {loading ? "Submitting..." : "Request Consultation"}

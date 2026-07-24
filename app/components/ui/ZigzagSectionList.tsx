@@ -23,6 +23,9 @@ export default function ZigzagSectionList({
   enableImageModal = false,
 }: ZigzagSectionListProps) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+const fileName = selectedImage
+  ? selectedImage.split("/").pop()?.replace(/^\d+_/, "")
+  : "";
   return (
     <>
     <section className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24">
@@ -43,11 +46,14 @@ export default function ZigzagSectionList({
               <div className={`md:col-span-6 overflow-hidden rounded-none border border-[#680007]/10 ${
                 isEven ? "md:order-first" : "md:order-last"
               }`}>
-                <DetailedCarousel images={item.images}   onImageClick={
-    enableImageModal
+                <DetailedCarousel
+  images={item.images}
+  onImageClick={
+    enableImageModal && index === 1
       ? (image) => setSelectedImage(image)
       : undefined
-  }/>
+  }
+/>
               </div>
 
               {/* Right/Left Column: Title + Description */}
@@ -68,27 +74,27 @@ export default function ZigzagSectionList({
         })}
       </div>
     </section>
-    {enableImageModal && selectedImage && (
-    <div
-        className="fixed inset-0 z-[9999] bg-black/90 flex items-center justify-center p-6"
-        onClick={() => setSelectedImage(null)}
+  {enableImageModal && selectedImage && (
+  <div
+    className="fixed inset-0 z-[9999] bg-black/90 flex items-center justify-center p-6"
+    onClick={() => setSelectedImage(null)}
+  >
+    <button
+      onClick={() => setSelectedImage(null)}
+      className="absolute top-6 right-6 text-white text-4xl"
     >
-        <button
-            onClick={() => setSelectedImage(null)}
-            className="absolute top-6 right-6 text-white text-4xl"
-        >
-            ×
-        </button>
+      ×
+    </button>
 
-        <Image
-            src={selectedImage}
-            alt=""
-            width={1400}
-            height={900}
-            className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg"
-            onClick={(e) => e.stopPropagation()}
-        />
-    </div>
+    <Image
+      src={selectedImage ? `/certification/${fileName}` :selectedImage}
+      alt=""
+      width={1400}
+      height={900}
+      className="max-h-[90vh] max-w-[90vw] object-contain rounded-lg"
+      onClick={(e) => e.stopPropagation()}
+    />
+  </div>
 )}
 </>
   );

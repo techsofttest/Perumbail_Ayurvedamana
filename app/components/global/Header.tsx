@@ -146,7 +146,7 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
                   <button
                     type="button"
                     onClick={onOpenBooking}
-                    className="flex items-center space-x-1.5 px-4 text-[10px] font-semibold uppercase tracking-wider border-l transition-colors text-[#3D0004] hover:text-[#b38e5d] border-[#680007]/10"
+                    className="cursor-pointer flex items-center space-x-1.5 px-4 text-[10px] font-semibold uppercase tracking-wider border-l transition-colors text-[#3D0004] hover:text-[#b38e5d] border-[#680007]/10"
                   >
                     <svg
                       className="w-3.5 h-3.5"

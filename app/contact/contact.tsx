@@ -282,14 +282,14 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              <div className="pt-4 border-t border-[#680007]/10">
+              {/* <div className="pt-4 border-t border-[#680007]/10">
                 <StyledButton
                   onClick={openBooking}
                   className="w-full text-center text-white"
                 >
                   Send Enquiry Now
                 </StyledButton>
-              </div>
+              </div> */}
             </div>
 
           </div>

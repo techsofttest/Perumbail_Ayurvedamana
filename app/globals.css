@@ -1,0 +1,204 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Samarn';
+  src: url('/fonts/samarn.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-samarn {
+  font-family: 'Samarn', sans-serif !important;
+}
+
+@theme {
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+  --font-samarn: 'Samarn', sans-serif;
+
+  /* Design System Palette: Organic Editorial & Tactile Heritage */
+  --color-forest: #680007;
+  --color-forest-dark: #3D0004;
+  --color-terracotta: #a84e32;
+  --color-terracotta-dark: #9c4329;
+  --color-gold: #b38e5d;
+  --color-gold-light: #c8ab80;
+  --color-gold-dark: #92734a;
+  --color-sandstone: #FBF3EF;
+  --color-sandstone-light: #FBF3EF;
+  --color-sandstone-dark: #ebdcdb;
+  --color-sandstone-border: rgba(104, 0, 7, 0.1);
+}
+
+:root {
+  --background: #FBF3EF;
+  --foreground: #3D0004;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-serif), Georgia, serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+
+  position: relative;
+  z-index: 1;
+}
+.physician-content{
+    color:#5b3c35;
+    font-size:16px;
+    line-height:1.8;
+}
+
+@media (min-width: 768px) {
+    .physician-content {
+        font-size:18px;
+        line-height:1.9;
+    }
+}
+
+@media (min-width: 1024px) {
+    .physician-content {
+        font-size:20px;
+        line-height:2;
+    }
+}
+
+.physician-content h2{
+    font-size:28px;
+    font-family: var(--font-playfair);
+    color:#3D0004;
+    margin-bottom:20px;
+    line-height:1.2;
+    font-weight:500;
+}
+
+@media (min-width: 768px) {
+    .physician-content h2 {
+        font-size:40px;
+        margin-bottom:30px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .physician-content h2 {
+        font-size:52px;
+        margin-bottom:40px;
+    }
+}
+
+.physician-content h3{
+    font-size:22px;
+    color:#3D0004;
+    font-family: var(--font-playfair);
+    margin-top:40px;
+    margin-bottom:15px;
+    font-weight:500;
+}
+
+@media (min-width: 768px) {
+    .physician-content h3 {
+        font-size:28px;
+        margin-top:55px;
+        margin-bottom:20px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .physician-content h3 {
+        font-size:34px;
+        margin-top:70px;
+        margin-bottom:25px;
+    }
+}
+
+.physician-content p{
+    margin-bottom:24px;
+}
+
+.physician-content strong{
+    color:#3D0004;
+    font-weight:700;
+}
+
+.physician-content em{
+    font-style:italic;
+}
+
+.physician-content hr{
+    border:none;
+    border-top:1px solid #d8c7ba;
+    margin:30px 0;
+}
+
+@media (min-width: 768px) {
+    .physician-content hr {
+        margin:60px 0;
+    }
+}
+
+.physician-content span{
+    color:#9c6b46 !important;
+    font-size:15px;
+    font-weight:600;
+}
+
+@media (min-width: 768px) {
+    .physician-content span {
+        font-size:18px;
+    }
+}
+
+.physician-content ul{
+    margin:20px 0 20px 30px;
+}
+
+.physician-content li{
+    margin-bottom:12px;
+}
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/page-bg/bg.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  opacity: 0.5;
+  /* You can adjust this value */
+  z-index: -1;
+}
+.prose strong,
+.prose b{
+    font-weight:700;
+    color:#3D0004;
+}
+/* Site-wide fixed paper background texture class utility */
+.bg-site-texture {
+  /* This class can now be removed or repurposed if the body background is sufficient */
+}
+
+/* Custom transitions and scroll behaviors */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Customized utility styles for high-end feel without heavy drop shadows */
+.tactile-border {
+  border: 1px solid var(--color-sandstone-border);
+}
+
+/* Custom spring anim helper */
+.spring-hover {
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.spring-hover:hover {
+  transform: translateY(-2px);
+}

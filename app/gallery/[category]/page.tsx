@@ -114,13 +114,6 @@ export default function CategoryGalleryPage({ params }: CategoryPageProps) {
           opacity: 0.9,
         }}
       />
-      <div
-        className="fixed inset-0 -z-30"
-        style={{
-          backgroundImage: "url('/backgrounds/cloud-texture.svg')",
-          opacity: 0.5,
-        }}
-      />
 
       {/* Header */}
       <Header onOpenBooking={openBooking} />
@@ -167,13 +160,15 @@ export default function CategoryGalleryPage({ params }: CategoryPageProps) {
 
         {/* Image Grid */}
         <section className="max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24 font-serif">
-          <div className="max-w-2xl text-right">
-          <Link
-                  href="/gallery"
-                  className="font-serif text-xs md:text-sm text-white/70 hover:text-white uppercase tracking-wider mb-2 inline-block"
-                >
-                  &larr; Back to Gallery
-                </Link></div>
+          <div className="mb-8">
+  <Link
+    href="/gallery"
+    className="inline-flex items-center gap-2 text-[#680007] hover:text-[#a84e32] uppercase tracking-wider text-sm"
+  >
+    <span>←</span>
+    <span>Back to Gallery</span>
+  </Link>
+</div>
           {images.length === 0 ? (
             <p className="text-center text-lg">No images uploaded to this gallery yet.</p>
           ) : (

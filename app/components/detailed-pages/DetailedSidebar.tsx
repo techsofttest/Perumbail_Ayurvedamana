@@ -20,7 +20,7 @@ export default function DetailedSidebar({
   backHref
 }: DetailedSidebarProps) {
   return (
-    <div className="md:col-span-5 bg-[#FBF3EF]/40 border border-[#680007]/10 p-8 rounded-sm space-y-6 sticky top-28">
+    <div className="md:col-span-5 h-fit bg-[#FBF3EF]/40 border border-[#680007]/10 p-8 rounded-sm space-y-6 sticky top-28">
       <div>
         <h3 className="font-serif text-xl text-[#680007] font-medium uppercase mb-2">
           {title}

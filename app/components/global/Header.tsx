@@ -110,7 +110,7 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
                 {/* Level 1: Top Bar (Desktop Only) - Now Boxed */}
                 <div className="flex p-4 items-center transition-all duration-300 rounded-b-lg bg-[#3D0004]/5">
 
-                 <a
+                  <a
                     href="/gallery"
                     className="flex items-center space-x-1.5 px-4 text-[10px] font-semibold uppercase tracking-wider border-l transition-colors text-[#3D0004] hover:text-[#b38e5d] border-[#680007]/10"
                   >
@@ -207,7 +207,7 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
               {/* Mobile Hamburger menu & Quick CTA */}
               <div className="xl:hidden flex items-center space-x-3 pt-3">
                 <a
-                  href="/online-consultation"
+                  href="/medical-consultation"
                   className="px-4 py-2 text-[10px] uppercase font-bold tracking-widest rounded-sm transition-all duration-300 border cursor-pointer bg-[#680007] hover:bg-[#3D0004] text-[#faf8f5] border-[#680007] flex items-center justify-center"
                 >
                   Medical
@@ -379,7 +379,7 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
             </div>
           </div>
         </div>
-        
+
       )}
     </>
   );

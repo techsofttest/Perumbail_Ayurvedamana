@@ -11,7 +11,7 @@ interface DetailedCarouselProps {
 }
 
 
-export default function DetailedCarousel({ images,onImageClick }: DetailedCarouselProps) {
+export default function DetailedCarousel({ images, onImageClick }: DetailedCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" }, [
     Autoplay({ delay: 5000, stopOnInteraction: true }),
   ]);
@@ -35,10 +35,9 @@ export default function DetailedCarousel({ images,onImageClick }: DetailedCarous
                 alt={`Slide ${index + 1}`}
                 fill
                 sizes="100vw"
-                 className={`object-cover ${
-    onImageClick ? "cursor-zoom-in" : ""
-  }`}
- onClick={() => onImageClick?.(imgSrc)}
+                className={`object-cover ${onImageClick ? "cursor-zoom-in" : ""
+                  }`}
+                onClick={() => onImageClick?.(imgSrc)}
                 priority={index === 0}
               />
             </div>
@@ -50,14 +49,14 @@ export default function DetailedCarousel({ images,onImageClick }: DetailedCarous
         <>
           <button
             onClick={scrollPrev}
-            className="absolute top-1/2 left-4 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center bg-white/70 hover:bg-white text-[#3D0004]/80 hover:text-[#3D0004] transition-all hover:scale-105 active:scale-95 shadow-md cursor-pointer z-10 text-lg"
+            className="absolute top-1/2 left-2 md:left-4 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center bg-white/70 hover:bg-white text-[#3D0004]/80 hover:text-[#3D0004] transition-all hover:scale-105 active:scale-95 shadow-md cursor-pointer z-10 text-sm md:text-lg"
             aria-label="Previous image"
           >
             &#8592;
           </button>
           <button
             onClick={scrollNext}
-            className="absolute top-1/2 right-4 -translate-y-1/2 w-10 h-10 rounded-full flex items-center justify-center bg-white/70 hover:bg-white text-[#3D0004]/80 hover:text-[#3D0004] transition-all hover:scale-105 active:scale-95 shadow-md cursor-pointer z-10 text-lg"
+            className="absolute top-1/2 right-2 md:right-4 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center bg-white/70 hover:bg-white text-[#3D0004]/80 hover:text-[#3D0004] transition-all hover:scale-105 active:scale-95 shadow-md cursor-pointer z-10 text-sm md:text-lg"
             aria-label="Next image"
           >
             &#8594;

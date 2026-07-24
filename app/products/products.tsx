@@ -99,7 +99,7 @@ const filteredProducts = useMemo(() => {
         </div>
 
           {/* Product Listing Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-12">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 md:gap-x-6 gap-y-8 md:gap-y-12">
             {filteredProducts.map((product) => (
               <Link
                 key={product.title}
@@ -112,7 +112,7 @@ const filteredProducts = useMemo(() => {
                     src={product.image}
                     alt={product.title}
                     fill
-                    sizes="(max-w-768px) 100vw, 20vw"
+                    sizes="(max-w-768px) 50vw, 20vw"
                     className="object-contain p-6 transition-transform duration-700 group-hover:scale-105"
                   />
                   {/* Hover overlay containing 'Buy It Now' and 'View Details' */}
@@ -135,7 +135,7 @@ const filteredProducts = useMemo(() => {
                   <h3 className="font-serif text-base md:text-lg font-medium text-[#3D0004] group-hover:text-[#b38e5d] transition-colors mb-2">
                     {product.title}
                   </h3>
-                  <p className="font-serif text-md text-[#3D0004]/70 leading-relaxed mb-4 line-clamp-2">
+                  <p className="font-serif text-md text-[#3D0004]/70 leading-relaxed mb-4 line-clamp-1 sm:line-clamp-2">
                     {product.content}
                   </p>
 
@@ -148,7 +148,7 @@ const filteredProducts = useMemo(() => {
                       ₹{product.offerprice}
                     </span>
                     <span
-                      className="w-full max-w-[160px] bg-[#A3000B] hover:bg-[#faf8f5] text-white hover:text-[#3D0004] py-2 text-xs font-bold uppercase tracking-widest transition-all duration-300 cursor-pointer text-center"
+                      className="hidden sm:block w-full max-w-[160px] bg-[#A3000B] hover:bg-[#faf8f5] text-white hover:text-[#3D0004] py-2 text-xs font-bold uppercase tracking-widest transition-all duration-300 cursor-pointer text-center"
                     >
                       Enquiry Now
                     </span>

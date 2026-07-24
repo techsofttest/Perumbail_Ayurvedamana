@@ -110,7 +110,7 @@ export default function ProductBanner({ showViewAllLink = true }: ProductBannerP
                 <div className="absolute top-0 left-0 w-12 md:w-16 h-[1.5px] bg-white/80 origin-top-left -rotate-45" />
                 <div className="absolute bottom-[34px] left-[34px] md:bottom-[45px] md:left-[45px] flex flex-col items-start px-4 py-1.5 bg-white -skew-x-[15deg] shadow-lg">
                   <span className="font-serif text-[10px] md:text-sm font-semibold text-[#3D0004] skew-x-[15deg] whitespace-nowrap">{product.title}</span>
-                  <span className="text-[9px] md:text-xs text-[#3D0004]/70 skew-x-[15deg] whitespace-nowrap">₹{product.price}</span>
+                  <span className="text-[10px] md:text-xs font-bold text-[#680007] skew-x-[15deg] whitespace-nowrap">₹{product.price}</span>
                 </div>
               </div>
             </a>
@@ -145,8 +145,8 @@ export default function ProductBanner({ showViewAllLink = true }: ProductBannerP
                     <div className={`absolute top-[45%] left-1/2 z-40 transition-all duration-300 pointer-events-none ${idx === activeIndex ? "opacity-100 translate-x-0 translate-y-0" : "opacity-0 -translate-x-2 translate-y-2"}`}>
                       <div className="absolute top-0 left-0 w-8 h-[1.5px] bg-white/80 origin-top-left -rotate-45" />
                       <div className="absolute bottom-[22px] left-[22px] flex flex-col items-start px-2 py-1 bg-white -skew-x-[15deg] shadow-lg">
-                        <span className="font-serif text-[9px] font-semibold text-[#3D0004] skew-x-[15deg] whitespace-nowrap">{product.title}</span>
-                        <span className="text-[8px] text-[#3D0004]/70 skew-x-[15deg] whitespace-nowrap">₹{product.price}</span>
+                        <span className="font-serif text-[10px] font-semibold text-[#3D0004] skew-x-[15deg] whitespace-nowrap">{product.title}</span>
+                        <span className="text-[10px] font-bold text-[#680007] skew-x-[15deg] whitespace-nowrap">₹{product.price}</span>
                       </div>
                     </div>
                   </a>

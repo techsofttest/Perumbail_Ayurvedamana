@@ -315,9 +315,9 @@ export default function Footer({ onOpenBooking }: FooterProps) {
     target="_blank"
     rel="noopener noreferrer"
     onClick={triggerBooking}
-     variant="secondary"
-                            className="text-white border-2 border-white/20  hover:bg-[#b38e5d] text-[#3D0004] hover:text-white"
-                        >
+    variant="secondary"
+    className="bg-white hover:bg-[#b38e5d] text-[#3D0004] hover:text-white"
+    >
     Kuruppath Heritage
     </StyledButton>
                     </div>

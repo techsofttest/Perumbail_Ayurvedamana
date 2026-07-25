@@ -354,7 +354,7 @@ xl:px-24
                                         Medical enquiry
                                     </h2>
                                     <p className="font-serif text-sm text-[#3D0004]/60 leading-relaxed font-light mt-3">
-                                        Fill out this detailed wellness questionnaire to help us plan your treatments accurately.
+                                        Fill out this detailed questionnaire to help us plan your treatments accurately.
                                     </p>
                                 </div>
 

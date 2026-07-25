@@ -310,7 +310,16 @@ export default function Footer({ onOpenBooking }: FooterProps) {
                                 {message}
                             </p>
                         )}
-
+                       <StyledButton
+    href="https://kuruppathheritage.com"
+    target="_blank"
+    rel="noopener noreferrer"
+    onClick={triggerBooking}
+    variant="secondary"
+    className="bg-white hover:bg-[#b38e5d] text-[#3D0004] hover:text-white"
+    >
+    kuruppath heritage
+    </StyledButton>
                     </div>
 
                 </div>

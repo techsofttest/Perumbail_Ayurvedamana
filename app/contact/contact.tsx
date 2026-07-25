@@ -245,20 +245,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Dynamic Important Notice Card (From Page 5) */}
-              {notice && (
-                <div className="bg-[#680007]/5 border border-[#680007]/15 p-8 rounded-none space-y-3 mt-8">
-                  <h4 className="text-sm font-bold uppercase tracking-widest text-[#680007] flex items-center gap-2">
-                    <IoWarningOutline className="text-[#680007] text-xl" /> {notice.title}
-                  </h4>
-                  <p className="text-[#680007] text-lg md:text-xl font-medium uppercase tracking-wide leading-relaxed">
-                    {notice.paragraphs}
-                  </p>
-                  {notice.content.map((paragraph, index) => (
-                    <p key={index} className="text-[#680007]/80 text-base md:text-lg font-light leading-relaxed">{paragraph}</p>
-                  ))}
-                </div>
-              )}
+             
             </div>
 
             {/* Right Column: Dynamic Connectivity Guide (From Page 4) */}
@@ -295,7 +282,20 @@ export default function ContactPage() {
             </div>
 
           </div>
-
+ {/* Dynamic Important Notice Card (From Page 5) */}
+              {notice && (
+                <div className="bg-[#680007]/5 border border-[#680007]/15 p-8 rounded-none space-y-3 mt-8">
+                  <h4 className="text-sm font-bold uppercase tracking-widest text-[#680007] flex items-center gap-2">
+                    <IoWarningOutline className="text-[#680007] text-xl" /> {notice.title}
+                  </h4>
+                  <p className="text-[#680007] text-lg md:text-xl font-medium uppercase tracking-wide leading-relaxed">
+                    {notice.paragraphs}
+                  </p>
+                  {notice.content.map((paragraph, index) => (
+                    <p key={index} className="text-[#680007]/80 text-base md:text-lg font-light leading-relaxed">{paragraph}</p>
+                  ))}
+                </div>
+              )}
           {/* Embedded Map Section */}
           <div className="mt-16 md:mt-24 bg-white border border-[#680007]/10 w-full overflow-hidden">
             <h3 className="text-sm font-semibold uppercase tracking-widest text-[#680007] mb-4 pt-4 pl-1 flex items-center gap-2">

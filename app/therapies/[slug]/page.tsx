@@ -17,7 +17,7 @@ interface PageProps {
 }
 
 async function getSEO(slug: string): Promise<SeoPayload> {
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL_BASE ? `${process.env.NEXT_PUBLIC_API_URL_BASE}/api` : "https://www.techsoftwebsolutions.com/techsoft/demo/ayurvedamana/public/api";
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL  ? `${process.env.NEXT_PUBLIC_API_URL_BASE}/api` : "https://www.techsoftwebsolutions.com/techsoft/demo/ayurvedamana/public/api";
   const res = await fetch(`${baseUrl}/therapy/detail/${slug}`, {
     cache: "no-store",
   });

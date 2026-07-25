@@ -102,7 +102,7 @@ if (loading) return <div className="min-h-screen flex items-center justify-cente
             <DetailedSidebar
               title={treatment.care.title}
                 description={treatment.care.content}
-                buttonText="Medical Consulting"
+                 buttonText="Medical Enquiry"
               onButtonClick={openBooking}
               backText="Back to Special Treatments"
               backHref="/special-treatments"

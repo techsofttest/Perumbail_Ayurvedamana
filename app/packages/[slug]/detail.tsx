@@ -141,7 +141,7 @@ if (loading) {
                             />
 
                             <DetailedSidebar
-                             buttonText="Medical Consulting"
+                             buttonText="Medical Enquiry"
                                 onButtonClick={openBooking}
                                 backText="Back to Packages"
                                 backHref="/packages"

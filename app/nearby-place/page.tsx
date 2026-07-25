@@ -10,7 +10,7 @@ interface ProductResponse {
 }
 
 async function getSEO(): Promise<ProductResponse> {
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL_BASE ? `${process.env.NEXT_PUBLIC_API_URL_BASE}/api` : "https://www.techsoftwebsolutions.com/techsoft/demo/ayurvedamana/public/api";
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL  ? `${process.env.NEXT_PUBLIC_API_URL_BASE}/api` : "https://www.techsoftwebsolutions.com/techsoft/demo/ayurvedamana/public/api";
 
   const res = await fetch(`${baseUrl}/near`, {
     cache: "no-store",

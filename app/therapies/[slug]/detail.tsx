@@ -89,6 +89,7 @@ const closeBooking = () => {
                 therapy={therapy.therapy}
               />
               <DetailedSidebar
+                buttonText="Medical Enquiry"
                 onButtonClick={openBooking}
                 backText="Back to Therapies"
                 backHref="/therapies"

@@ -62,10 +62,21 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
                   <span className="w-full h-[2px] bg-white rounded-lg transition-transform duration-300 ease-in-out group-hover:-translate-x-1" />
                 </div>
               </button>
+              <div className="hidden md:block ml-12 lg:ml-20 xl:ml-28">
+                <StyledButton
+                  type="button"
+                  onClick={onOpenBooking}
+                  variant="secondary"
+                  className="text-white border border-white/20 hover:bg-white/10 hover:text-white"
+                >
+                  Send an Enquiry
+                </StyledButton>
+              </div>
             </div>
 
             {/* Center: Brand Logo (A little bit bigger, e.g. h-12 md:h-16) */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center justify-center">
+            
               <a href="/">
                 <Image
                   src="/logo/logo-white.png"
@@ -84,7 +95,7 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
                 href="/medical-consultation"
                 variant="secondary"
                 className="text-white border border-white/20 hover:bg-white/10 hover:text-white "
-              >Medical Consultation</StyledButton>
+              >Medical Enquiry</StyledButton>
             </div>
           </div>
         ) : (
@@ -175,7 +186,7 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
                       <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
                       <path d="M16 3.13a4 4 0 1 1 0 7.75" />
                     </svg>
-                    <span>Medical Consultation</span>
+                    <span>Medical Enquiry</span>
                   </a>
                 </div>
 
@@ -337,7 +348,7 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
                         <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
                         <path d="M16 3.13a4 4 0 1 1 0 7.75" />
                       </svg>
-                      <span>Medical Consultation</span>
+                      <span>Medical Enquiry</span>
                     </a>
                   </div>
                 </div>
@@ -367,7 +378,7 @@ export default function Header({ onOpenBooking, forceSolid = false }: HeaderProp
                     <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
                     <path d="M16 3.13a4 4 0 1 1 0 7.75" />
                   </svg>
-                  <span>Medical Consultation</span>
+                  <span>Medical Enquiry</span>
                 </a>
               </div>
 

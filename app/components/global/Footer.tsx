@@ -115,7 +115,7 @@ export default function Footer({ onOpenBooking }: FooterProps) {
                             variant="secondary"
                             className="bg-white hover:bg-[#b38e5d] text-[#3D0004] hover:text-white"
                         >
-                            Medical Consultation
+                           Medical Enquiry
                         </StyledButton>
                         <StyledButton
 

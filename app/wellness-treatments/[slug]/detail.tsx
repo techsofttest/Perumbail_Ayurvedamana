@@ -96,7 +96,7 @@ export default function WellnessTreatmentDetailPage({ params }: PageProps) {
             <DetailedSidebar
               title={treatment.care.title}
               description={treatment.care.content}
-              buttonText="Medical Consulting"
+               buttonText="Medical Enquiry"
               onButtonClick={openBooking}
               backText="Back to Wellness Treatments"
               backHref="/wellness-treatments"

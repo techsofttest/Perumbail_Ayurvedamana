@@ -118,7 +118,7 @@ const handleSubmit = async (e: React.FormEvent) => {
                 NABH ACCREDITED CARE
               </span>
               <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl text-[#3D0004] mt-1">
-                Consultation Enquiry
+                General enquiry 
               </h2>
               <p className="text-xs text-[#3D0004]/65 mt-2">
                 100+ years of ancestral trust. Share your clinical requirements below.

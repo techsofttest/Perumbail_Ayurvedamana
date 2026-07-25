@@ -351,7 +351,7 @@ xl:px-24
                                         STEP <span className="font-sans">{step}</span> OF <span className="font-sans">{totalSteps}</span> &bull; {stepNames[step - 1]}
                                     </span>
                                     <h2 className="font-serif text-3xl md:text-4xl font-medium text-[#3D0004] tracking-tight uppercase leading-none">
-                                        Medical Consultation
+                                        Medical enquiry
                                     </h2>
                                     <p className="font-serif text-sm text-[#3D0004]/60 leading-relaxed font-light mt-3">
                                         Fill out this detailed wellness questionnaire to help us plan your treatments accurately.

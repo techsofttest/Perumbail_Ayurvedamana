@@ -25,6 +25,7 @@ interface ContactData {
   email: string;
   map: string;
   address: string;
+  website: string;
 }
 
 interface ConnectivityItem {
@@ -199,12 +200,12 @@ export default function ContactPage() {
                 <p className="flex items-center gap-3 pt-2">
                   <IoGlobeOutline className="text-[#680007] flex-shrink-0 text-xl md:text-2xl" />
                   <a
-                    href="http://www.ayurvedamana.com/"
+                    href={contact.website}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[#680007] hover:underline font-normal"
                   >
-                    www.ayurvedamana.com
+                   {contact.website}
                   </a>
                 </p>
               </div>

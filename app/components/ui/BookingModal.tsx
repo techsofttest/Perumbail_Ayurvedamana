@@ -69,7 +69,7 @@ const handleSubmit = async (e: React.FormEvent) => {
 };
 
   return (
-   <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto bg-black/40 backdrop-blur-sm p-4 animate-fade-in">
+   <div className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-black/40 backdrop-blur-sm p-4 animate-fade-in">
       {/* Backdrop click to close */}
       <div className="absolute inset-0" onClick={onClose}></div>
 

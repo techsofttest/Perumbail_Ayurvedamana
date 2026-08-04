@@ -43,6 +43,18 @@ export default function RootLayout({
       <body
         className="min-h-full flex flex-col"
       >
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-054N2FNJRH"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-054N2FNJRH');
+          `}
+        </Script>
         {children}
         <Script
           src="https://ayurvedamana.duckdns.org/widget/widget.js"

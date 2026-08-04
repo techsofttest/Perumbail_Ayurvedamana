@@ -9,13 +9,13 @@ const nextConfig = {
     unoptimized: true,
     remotePatterns: [
       {
-        protocol: "http",
+        protocol: "http" as const,
         hostname: "127.0.0.1",
         port: "8000",
         pathname: "/uploads/**",
       },
       {
-        protocol: "https",
+        protocol: "https" as const,
         hostname: "techsoftwebsolutions.com",
         pathname: "/techsoft/demo/ayurvedamana/public/uploads/**",
       },

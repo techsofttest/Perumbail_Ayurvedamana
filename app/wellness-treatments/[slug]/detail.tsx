@@ -31,12 +31,16 @@ interface WellnessData {
 export default function WellnessTreatmentDetailPage({ params }: PageProps) {
   const resolvedParams = use(params);
   const slug = resolvedParams.slug;
+
   const [isBookingOpen, setIsBookingOpen] = useState(false);
 
-  const openBooking = () => {
-    window.location.href = "/medical-consultation";
-  };
-  const closeBooking = () => setIsBookingOpen(false);
+const openBooking = () => {
+  setIsBookingOpen(true);
+};
+
+const closeBooking = () => {
+  setIsBookingOpen(false);
+};
 
   const [treatment, setTherapy] = useState<any>(null);
     const [loading, setLoading] = useState(true);
@@ -96,7 +100,7 @@ export default function WellnessTreatmentDetailPage({ params }: PageProps) {
             <DetailedSidebar
               title={treatment.care.title}
               description={treatment.care.content}
-               buttonText="Medical Enquiry"
+               buttonText="Send Enquiry"
               onButtonClick={openBooking}
               backText="Back to Wellness Treatments"
               backHref="/wellness-treatments"
@@ -106,7 +110,7 @@ export default function WellnessTreatmentDetailPage({ params }: PageProps) {
         </section>
       </main>
 
-      <Footer />
+      <Footer onOpenBooking={openBooking} />
       <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />
     </div>
   );

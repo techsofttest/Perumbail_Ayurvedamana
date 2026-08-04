@@ -130,7 +130,7 @@ export default function TestimonialsPage() {
         </section>
       </main>
 
-      <Footer />
+      <Footer onOpenBooking={openBooking} />
       <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />
 
       {/* Premium Full-Screen Video Lightbox Modal with safety check */}

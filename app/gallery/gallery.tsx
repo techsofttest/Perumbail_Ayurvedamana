@@ -122,8 +122,7 @@ countLabel={category.images.length === 1 ? "Image" : "Images"}
       </main>
 
       {/* Footer */}
-      <Footer />
-
+     <Footer onOpenBooking={openBooking} />
       {/* Booking Modal */}
       <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />
     </div>

@@ -215,7 +215,7 @@ export default function CategoryVideoGalleryPage({ params }: CategoryPageProps) 
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer onOpenBooking={openBooking} />
 
       {/* Premium Full-Screen Video Lightbox Modal */}
       {activeVideoIndex !== null && (

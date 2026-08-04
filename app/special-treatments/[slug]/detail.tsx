@@ -102,7 +102,7 @@ if (loading) return <div className="min-h-screen flex items-center justify-cente
             <DetailedSidebar
               title={treatment.care.title}
                 description={treatment.care.content}
-                 buttonText="Medical Enquiry"
+                 buttonText="Send Enquiry"
               onButtonClick={openBooking}
               backText="Back to Special Treatments"
               backHref="/special-treatments"
@@ -112,7 +112,7 @@ if (loading) return <div className="min-h-screen flex items-center justify-cente
         </section>
       </main>
 
-      <Footer />
+      <Footer onOpenBooking={openBooking} />
       <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />
     </div>
   );

@@ -19,7 +19,9 @@ interface PageData {
 }
 
 export default function HistoryPage() {
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
+   const [isBookingOpen, setIsBookingOpen] = useState(false);
+   const openBooking = () => setIsBookingOpen(true);
+   const closeBooking = () => setIsBookingOpen(false);
   const [pageContent, setPageContent] = useState<PageData | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -60,7 +62,7 @@ export default function HistoryPage() {
         }}
       />
 
-      <Header onOpenBooking={() => window.location.href = "/medical-consultation"} forceSolid={true} />
+      <Header onOpenBooking={openBooking} />
 
       <main className="flex-grow pt-28 md:pt-36 pb-20">
         <section className="relative w-full bg-transparent text-[#3D0004] font-serif py-12">
@@ -171,7 +173,7 @@ export default function HistoryPage() {
         </section>
       </main>
 
-      <Footer />
+    <Footer onOpenBooking={openBooking} />
       <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </div>
   );

@@ -27,14 +27,7 @@ export default function Footer({ onOpenBooking }: FooterProps) {
     const [email, setEmail] = useState("");
     const [loading, setLoading] = useState(false);
     const [message, setMessage] = useState("");
-    const triggerBooking = () => {
-        if (onOpenBooking) {
-            onOpenBooking();
-        } else {
-            const btn = document.querySelector('[data-booking-trigger]') as HTMLButtonElement;
-            if (btn) btn.click();
-        }
-    };
+
     const [data, setData] = useState<FooterData | null>(null);
 
     useEffect(() => {
@@ -111,18 +104,15 @@ export default function Footer({ onOpenBooking }: FooterProps) {
                     <div className="flex flex-wrap gap-4 sm:gap-6 items-center justify-center">
                         <StyledButton
                             href="/medical-consultation"
-                            onClick={triggerBooking}
                             variant="secondary"
                             className="bg-white hover:bg-[#b38e5d] text-[#3D0004] hover:text-white"
                         >
                            Medical Enquiry
                         </StyledButton>
-                        <StyledButton
-
-                            href="/contact"
-                            onClick={triggerBooking}
+                         <StyledButton
+                            onClick={onOpenBooking}
                             variant="secondary"
-                            className="text-white border-2 border-white/20  hover:bg-[#b38e5d] text-[#3D0004] hover:text-white"
+                            className="text-white border-2 border-white/20 hover:bg-[#b38e5d] text-[#3D0004] hover:text-white"
                         >
                             Send An Enquiry
                         </StyledButton>
@@ -314,7 +304,6 @@ export default function Footer({ onOpenBooking }: FooterProps) {
     href="https://kuruppathheritage.com"
     target="_blank"
     rel="noopener noreferrer"
-    onClick={triggerBooking}
     variant="secondary"
     className="bg-[#b38e5d] hover:bg-white text-white hover:[#3D0004]"
     >

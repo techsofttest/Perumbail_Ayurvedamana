@@ -152,8 +152,7 @@ export default function FacilitiesPage() {
       </main>
 
       {/* Footer */}
-      <Footer />
-
+      <Footer onOpenBooking={openBooking} />
       {/* Booking Modal */}
       <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />
     </div>

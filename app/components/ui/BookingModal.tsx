@@ -213,7 +213,7 @@ const handleSubmit = async (e: React.FormEvent) => {
               className="w-full cursor-pointer"
               disabled={loading}
             >
-              {loading ? "Submitting..." : "Request Consultation"}
+              {loading ? "Submitting..." : "Send An Enquiry"}
             </StyledButton>
               </div>
             </form>

@@ -216,7 +216,7 @@ export default function CategoryGalleryPage({ params }: CategoryPageProps) {
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer onOpenBooking={openBooking}/>
 
       {/* Premium Full-Screen Lightbox Modal */}
       {activeImageIndex !== null && images.length > 0 && (

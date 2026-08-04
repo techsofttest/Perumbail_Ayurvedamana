@@ -48,7 +48,7 @@ const closeBooking = () => {
 
         <SuccessStories />
       </main>
-      <Footer />
+      <Footer onOpenBooking={openBooking} />
 
       {/* Floating Action Elements */}
       {/* <WhatsAppFloat /> */}

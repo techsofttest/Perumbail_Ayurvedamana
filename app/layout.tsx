@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-
+import Script from "next/script";
 const playfair = Playfair_Display({
   variable: "--font-serif",
   subsets: ["latin"],
@@ -44,7 +44,12 @@ export default function RootLayout({
         className="min-h-full flex flex-col"
       >
         {children}
+        <Script
+          src="https://ayurvedamana.duckdns.org/widget/widget.js"
+          strategy="afterInteractive"
+        />
       </body>
+      
     </html>
   );
 }

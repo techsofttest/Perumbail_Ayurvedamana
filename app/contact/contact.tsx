@@ -317,7 +317,7 @@ export default function ContactPage() {
       </main>
 
 
-      <Footer />
+      <Footer onOpenBooking={openBooking} />
       <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />
     </div>
   );

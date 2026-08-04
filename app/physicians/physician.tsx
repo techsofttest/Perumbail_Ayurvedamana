@@ -116,7 +116,7 @@ export default function PhysiciansPage() {
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer onOpenBooking={openBooking} />
 
       {/* Consultation/Booking Modal */}
       <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />

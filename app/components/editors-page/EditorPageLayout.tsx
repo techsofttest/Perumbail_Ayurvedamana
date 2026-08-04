@@ -47,7 +47,7 @@ export default function EditorPageLayout({ title, children }: EditorPageLayoutPr
         </section>
       </main>
 
-      <Footer />
+      <Footer onOpenBooking={openBooking}/>
       <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />
     </div>
   );

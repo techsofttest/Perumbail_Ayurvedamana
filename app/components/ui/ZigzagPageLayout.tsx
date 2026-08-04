@@ -109,7 +109,7 @@ export default function ZigzagPageLayout({
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer onOpenBooking={openBooking}/>
 
       {/* Booking Modal */}
       <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />

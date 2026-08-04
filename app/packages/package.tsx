@@ -165,7 +165,7 @@ export default function PackagesPage() {
             </main>
 
             {/* Footer */}
-            <Footer />
+            <Footer onOpenBooking={openBooking} />
 
             <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />
         </div>

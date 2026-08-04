@@ -3,6 +3,7 @@
 import { useState,useEffect , useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import BookingModal from "../components/ui/BookingModal";
 import Header from "../components/global/Header";
 import Footer from "../components/global/Footer";
 import ProductBanner from "../components/home/ProductBanner";
@@ -26,7 +27,9 @@ export default function ProductsPage() {
  const [selectedCategory, setSelectedCategory] = useState<string>("All");
 const [products, setProducts] = useState<Product[]>([]);
 const [categories, setCategories] = useState<CategoryData[]>([]);
-  
+     const [isBookingOpen, setIsBookingOpen] = useState(false);
+   const openBooking = () => setIsBookingOpen(true);
+   const closeBooking = () => setIsBookingOpen(false);
  useEffect(() => {
   fetch(`${process.env.NEXT_PUBLIC_API_URL}/product`)
     .then((res) => res.json())
@@ -52,7 +55,7 @@ const filteredProducts = useMemo(() => {
 
   return (
     <div className="flex flex-col min-h-screen text-[#3D0004] selection:bg-[#a84e32]/25 selection:text-[#3D0004] font-serif">
-      <Header onOpenBooking={() => window.location.href = "/online-consultation"} forceSolid={true} />
+      <Header onOpenBooking={openBooking} />
 
       <main className="flex-grow pt-28 md:pt-36 pb-20">
         <div className="max-w-7xl mx-auto px-6 md:px-12">
@@ -161,7 +164,8 @@ const filteredProducts = useMemo(() => {
         </div>
       </main>
 
-      <Footer />
+      <Footer onOpenBooking={openBooking} />
+        <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
     </div>
   );
 }

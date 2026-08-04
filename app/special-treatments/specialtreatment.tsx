@@ -104,7 +104,7 @@ export default function SpecialTreatmentsPage() {
         </section>
       </main>
 
-      <Footer />
+      <Footer onOpenBooking={openBooking} />
       <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />
     </div>
   );

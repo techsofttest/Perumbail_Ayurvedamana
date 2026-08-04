@@ -4,6 +4,7 @@ import { useState, use, useEffect } from "react";
 import Image from "next/image";
 import Header from "@/app/components/global/Header";
 import Footer from "@/app/components/global/Footer";
+import BookingModal from "@/app/components/ui/BookingModal";
 import StyledButton from "@/app/components/ui/StyledButton";
 
 interface PageProps {
@@ -42,9 +43,15 @@ export default function ProductDetailedPage({ params }: PageProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [product, setProducts] = useState<Product | null>(null);
 
-  const openBooking = () => {
-    window.location.href = "/online-consultation";
-  };
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+
+const openBooking = () => {
+  setIsBookingOpen(true);
+};
+
+const closeBooking = () => {
+  setIsBookingOpen(false);
+};
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/product/detail/${productSlug}`)
       .then((res) => res.json())
@@ -363,7 +370,8 @@ export default function ProductDetailedPage({ params }: PageProps) {
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer onOpenBooking={openBooking}/>
+            <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />
     </div>
   );
 }

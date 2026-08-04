@@ -145,7 +145,7 @@ const closeBooking = () => {
 
       </main>
 
-      <Footer />
+     <Footer onOpenBooking={openBooking} />
 
       <BookingModal
         isOpen={isBookingOpen}

@@ -58,7 +58,7 @@ const closeBooking = () => {
       </main>
 
       {/* Footer */}
-      <Footer />
+      <Footer onOpenBooking={openBooking} />
 
       {/* Hidden button for triggering modal programmatically from child components */}
       <button

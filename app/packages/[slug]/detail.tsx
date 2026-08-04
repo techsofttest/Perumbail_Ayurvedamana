@@ -141,7 +141,7 @@ if (loading) {
                             />
 
                             <DetailedSidebar
-                             buttonText="Medical Enquiry"
+                             buttonText="Send Enquiry"
                                 onButtonClick={openBooking}
                                 backText="Back to Packages"
                                 backHref="/packages"
@@ -153,7 +153,7 @@ if (loading) {
             </main>
 
             {/* Footer */}
-            <Footer />
+            <Footer onOpenBooking={openBooking}/>
 
             {/* Consultation/Booking Modal */}
             <BookingModal isOpen={isBookingOpen} onClose={closeBooking} />

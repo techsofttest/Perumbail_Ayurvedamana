@@ -130,7 +130,7 @@ export default function FeaturedTherapy() {
                     }}
                     className=" cursor-pointer"
                   >
-                    Book a Consultation
+                   Medical Enquiry
                   </StyledButton>
                 </div>
               </div>

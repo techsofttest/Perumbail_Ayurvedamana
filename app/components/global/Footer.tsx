@@ -305,7 +305,7 @@ export default function Footer({ onOpenBooking }: FooterProps) {
     target="_blank"
     rel="noopener noreferrer"
     variant="secondary"
-    className="bg-[#b38e5d] hover:bg-white text-white hover:text-[#3D0004]"
+    className="bg-[#b38e5d] hover:bg-white text-white hover:[#3D0004]"
     >
     Kuruppath Heritage
     </StyledButton>
